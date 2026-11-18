@@ -237,14 +237,3 @@ Siguiendo la modalidad pedagógica del TP3 (*"Construcción 100% Agéntica: uste
 
 *(Ambos enlaces son públicos y de acceso directo desde cualquier navegador sin necesidad de iniciar sesión).*
 
----
-
-## 10. Autoevaluación y Matriz de Cumplimiento (Rúbrica Oficial — Nivel Supera / Propone)
-
-| Ítem | Criterio de la Rúbrica Oficial | Nivel Alcanzado | Evidencia Concreta en el Proyecto y en este README |
-| :---: | :--- | :---: | :--- |
-| **01** | **Participación de los integrantes** | **SUPERA / PROPONE** | Los 4 integrantes del Grupo 21 (Guzmán, Andrada, Belinzoni, Chacon) están identificados con sus roles, perfiles y aportes específicos, incluyendo 3 revisiones colaborativas documentadas sobre la lógica y la UI generadas por el agente. |
-| **02** | **Repositorio y landing publicados** | **SUPERA / PROPONE** | Repositorio en GitHub y despliegue en Vercel públicos y operativos sin login, acompañados de guía paso a paso verificada para clonar, instalar, correr en desarrollo y compilar (`npm run build`) localmente. |
-| **03** | **Landing acorde a la consigna** | **SUPERA / PROPONE** | Identidad visual propia de cancha de fútbol 5 nocturna, logo oficial `S07.webp` con descarga, explicación del origen en IFTS 16, sentencias textuales y formalizadas, desplegables `<details>` accesibles por teclado y simulador interactivo *La Pizarra del Capitán*. |
-| **04** | **Dos flujos agénticos gráficos** | **SUPERA / PROPONE** | Dos árboles de decisión interactivos en alto contraste (R1 y R2) con filtros de recorrido, tabla de verdad completa de 8 estados y resolución detallada de casos límite con protocolos de intervención humana en ambos flujos. |
-| **05** | **Herramientas de IA y modelos** | **SUPERA / PROPONE** | Declaración transparente de Google Antigravity y los modelos utilizados, junto con la trazabilidad completa de iteración (prompt inicial, errores lógicos y visuales detectados por el equipo, reprompting correctivo y resultado final). |
