@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Matchdeverdad — Dos sentencias, dos soluciones. Práctica formativa TP3 de Desarrollo de Sistemas Web Front End en el IFTS 29. Solución agéntica para la organización de partidos de fútbol 5 (Candidatos y urgencia)." />
+  <meta name="description" content="Matchdeverdad — Dos sentencias, dos soluciones. Práctica formativa TP3 de Desarrollo de Sistemas Web Front End en el IFTS 29. Solución agéntica e interactiva para la organización de partidos de fútbol 5 (Candidatos y urgencia)." />
   <title>Matchdeverdad — Dos sentencias, dos soluciones | IFTS 29 - Grupo 21</title>
 
   <!-- Favicon oficial de Matchdeverdad -->
@@ -16,17 +16,14 @@
   <!-- Enlace accesible de salto al contenido -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- Header y Navegación Sticky -->
+  <!-- Header y Navegación Sticky (1 sola línea, sin desbordes ni wraps) -->
   <header class="site-header" role="banner">
     <div class="container nav-wrap">
       <a href="#hero" class="brand-badge" aria-label="Ir al inicio de Matchdeverdad">
         <div class="brand-logo-frame">
-          <img src="/logos/S07.webp" alt="Logo oficial de Matchdeverdad" class="brand-logo-img" width="42" height="42" />
+          <img src="/logos/S07.webp" alt="Logo oficial de Matchdeverdad" class="brand-logo-img" width="40" height="40" />
         </div>
-        <div class="brand-title-group">
-          <span class="brand-name">Matchdeverdad</span>
-          <span class="brand-tag">Fútbol 5 &amp; Automatización Agéntica</span>
-        </div>
+        <span class="brand-name">Matchdeverdad</span>
       </a>
 
       <nav class="site-nav" aria-label="Navegación principal">
@@ -34,17 +31,15 @@
           <li><a href="#hero" class="nav-link active">Inicio</a></li>
           <li><a href="#startup" class="nav-link">Startup</a></li>
           <li><a href="#sentencias" class="nav-link">Sentencias</a></li>
-          <li><a href="#propuesta-1" class="nav-link">Propuesta 1 (R1)</a></li>
-          <li><a href="#propuesta-2" class="nav-link">Propuesta 2 (R2)</a></li>
-          <li><a href="#simulador" class="nav-link">Pizarra Táctica</a></li>
+          <li><a href="#propuesta-1" class="nav-link">Propuesta 1</a></li>
+          <li><a href="#propuesta-2" class="nav-link">Propuesta 2</a></li>
+          <li><a href="#simulador" class="nav-link">Pizarra</a></li>
           <li><a href="#equipo" class="nav-link">Equipo</a></li>
         </ul>
       </nav>
 
-      <div class="nav-meta">
-        <span class="nav-meta-badge">
-          IFTS 29 · Grupo 21 · S07-A
-        </span>
+      <div class="nav-meta-badge">
+        IFTS 29 · Grupo 21 · S07-A
       </div>
     </div>
   </header>
@@ -57,10 +52,10 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-meta-chips">
-            <span class="chip chip-turf">IFTS 29 · Desarrollo Front End</span>
-            <span class="chip">2do Cuatrimestre · 2026</span>
+            <span class="chip chip-turf">IFTS 29 · Front End 2026</span>
+            <span class="chip">2do Cuatrimestre</span>
             <span class="chip chip-turf">Bloque: Candidatos y urgencia</span>
-            <span class="chip chip-amber">Sorteo Oficial S07-A · Grupo 21</span>
+            <span class="chip chip-amber">Sorteo S07-A</span>
           </div>
 
           <h1 id="hero-title" class="hero-title">
@@ -69,107 +64,76 @@
           </h1>
 
           <p class="hero-lead">
-            El salvador del <strong>fútbol 5 amateur</strong>: cuando se baja uno a las 18:30 y el partido es a las 20:00. Presentamos dos propuestas agénticas para conectar postulantes compatibles en el barrio y gestionar la urgencia previa al partido <strong>sin cancelaciones intempestivas</strong> que hagan perder la seña de la cancha.
+            El salvador del <strong>fútbol 5 amateur</strong>: cuando se baja uno a las 18:30 y el partido es a las 20:00. Diseñamos dos propuestas agénticas interactivas para conectar postulantes en el barrio y gestionar la urgencia previa al partido <strong>sin cancelaciones intempestivas</strong> que hagan perder la seña de la cancha.
           </p>
 
           <div class="hero-actions">
             <a href="#propuesta-1" class="btn btn-primary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              Explorar Propuesta 1 (R1)
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Ver Diagrama 1 (R1)
             </a>
             <a href="#propuesta-2" class="btn btn-amber">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Explorar Propuesta 2 (R2)
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Ver Diagrama 2 (R2)
             </a>
             <a href="#simulador" class="btn btn-secondary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Abrir Pizarra Interactiva
+              Pizarra Interactiva
             </a>
           </div>
         </div>
 
-        <!-- Cartel Marcador y Mini Cancha del Hero -->
-        <div class="scoreboard-card">
-          <div class="scoreboard-top">
-            <div class="match-venue">
-              <div class="venue-pulse"></div>
+        <!-- Cancha Táctica Sintética del Hero -->
+        <div class="hero-pitch-card">
+          <div class="pitch-top-bar">
+            <div class="venue-info">
+              <div class="venue-light"></div>
               <span class="venue-name">Cancha 3 · La Cantera F5</span>
             </div>
             <div class="led-clock-box">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               TURNO: 20:00 HS
             </div>
           </div>
 
-          <!-- Cancha de Fútbol 5 -->
-          <div class="pitch-stage">
-            <div class="pitch-center-circle"></div>
-            <div class="pitch-roster">
-              <div class="player-jersey-card" title="Arquero 1 (Confirmado)">
-                <div class="jersey-number">1</div>
-                <div class="jersey-name">Nico (Arq)</div>
-              </div>
-              <div class="player-jersey-card" title="Defensor 1 (Confirmado)">
-                <div class="jersey-number">2</div>
-                <div class="jersey-name">Gonza (Def)</div>
-              </div>
-              <div class="player-jersey-card" title="Medio 1 (Confirmado)">
-                <div class="jersey-number">3</div>
-                <div class="jersey-name">Fran (Med)</div>
-              </div>
-              <div class="player-jersey-card" title="Delantero 1 (Confirmado)">
-                <div class="jersey-number">4</div>
-                <div class="jersey-name">Leo (Del)</div>
-              </div>
-              <div class="player-jersey-card" title="Arquero 2 (Confirmado)">
-                <div class="jersey-number">5</div>
-                <div class="jersey-name">Santi (Arq)</div>
-              </div>
-              <div class="player-jersey-card" title="Defensor 2 (Confirmado)">
-                <div class="jersey-number">6</div>
-                <div class="jersey-name">Mati (Def)</div>
-              </div>
-              <div class="player-jersey-card" title="Medio 2 (Confirmado)">
-                <div class="jersey-number">7</div>
-                <div class="jersey-name">Juani (Med)</div>
-              </div>
-              <div class="player-jersey-card" title="Delantero 2 (Confirmado)">
-                <div class="jersey-number">8</div>
-                <div class="jersey-name">Manu (Del)</div>
-              </div>
-              <div class="player-jersey-card jersey-missing" title="Vacante 1 (Buscando jugador compatible)">
-                <div class="jersey-number">?</div>
-                <div class="jersey-name">¿FALTA?</div>
-              </div>
-              <div class="player-jersey-card jersey-missing" title="Vacante 2 (Buscando jugador compatible)">
-                <div class="jersey-number">?</div>
-                <div class="jersey-name">¿FALTA?</div>
-              </div>
+          <div class="synthetic-field">
+            <div class="field-half-line"></div>
+            <div class="field-center-circle"></div>
+            <div class="field-players-grid">
+              <div class="hero-jersey" title="Arquero 1"><div class="num">1</div><div class="name">Nico</div></div>
+              <div class="hero-jersey" title="Defensor 1"><div class="num">2</div><div class="name">Gonza</div></div>
+              <div class="hero-jersey" title="Medio 1"><div class="num">3</div><div class="name">Fran</div></div>
+              <div class="hero-jersey" title="Delantero 1"><div class="num">4</div><div class="name">Leo</div></div>
+              <div class="hero-jersey" title="Arquero 2"><div class="num">5</div><div class="name">Santi</div></div>
+              <div class="hero-jersey" title="Defensor 2"><div class="num">6</div><div class="name">Mati</div></div>
+              <div class="hero-jersey" title="Medio 2"><div class="num">7</div><div class="name">Juani</div></div>
+              <div class="hero-jersey" title="Delantero 2"><div class="num">8</div><div class="name">Manu</div></div>
+              <div class="hero-jersey hero-jersey-missing" title="Vacante 1"><div class="num">?</div><div class="name">¿Falta?</div></div>
+              <div class="hero-jersey hero-jersey-missing" title="Vacante 2"><div class="num">?</div><div class="name">¿Falta?</div></div>
             </div>
           </div>
 
-          <div class="scoreboard-bottom">
-            <span class="quorum-status">ESTADO: <strong>8 / 10 CONFIRMADOS</strong> (FALTAN 2)</span>
-            <span class="radar-badge">RADAR ACTIVO &le; 5 KM</span>
+          <div class="pitch-bottom-bar">
+            <span class="quorum-text">ESTADO: <strong>8 / 10 CONFIRMADOS</strong> (FALTAN 2)</span>
+            <span class="radar-pill">RADAR ACTIVO &le; 5 KM</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN 01: LA STARTUP MATCHDEVERDAD & ORIGEN ACADÉMICO -->
+    <!-- SECCIÓN 01: STARTUP MATCHDEVERDAD & ORIGEN -->
     <section id="startup" class="content-section" aria-labelledby="startup-title">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">01 · La Startup Asignada</span>
+          <span class="section-eyebrow">01 · Startup Asignada</span>
           <h2 id="startup-title" class="section-title">Matchdeverdad y el Desafío del Quórum</h2>
           <p class="section-desc">
-            Organizador inteligente de fútbol 5 amateur para asegurar que nunca falten los diez jugadores confirmados.
+            Organizador inteligente de fútbol 5 para asegurar que nunca falten los diez jugadores confirmados.
           </p>
         </div>
 
         <article class="startup-card">
           <div class="startup-logo-col">
-            <img src="/logos/S07.webp" alt="Logo oficial de Matchdeverdad" class="startup-logo-big" width="150" height="150" />
+            <img src="/logos/S07.webp" alt="Logo oficial de Matchdeverdad" class="startup-logo-big" width="140" height="140" />
             <div>
               <a href="/logos/S07.webp" download="Matchdeverdad.webp" class="logo-download-btn">Descargar logo oficial WebP ↓</a>
             </div>
@@ -187,20 +151,20 @@
               <span class="startup-pill"><strong>Destinatarios:</strong> Capitanes y organizadores</span>
             </div>
 
-            <p style="color: var(--text-secondary); margin-bottom: 18px; font-size: 0.96rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.96rem;">
               En el fútbol amateur de la Ciudad, que un compañero avise a las 18:30 que no llega al partido de las 20:00 es moneda corriente. Esto desata cadenas frenéticas de mensajes en WhatsApp, pone en riesgo la reserva y genera pérdidas de señas económicas. <strong>Matchdeverdad</strong> reemplaza esa improvisación mediante un agente de radar barrial que detecta postulantes compatibles y asiste en momentos de urgencia sin tomar decisiones destructivas.
             </p>
 
             <div class="academic-origin-note">
               <strong>Articulación Pedagógica Interinstitucional:</strong><br />
-              Las premisas lógicas de Matchdeverdad fueron formuladas originalmente por estudiantes del <strong>IFTS 16</strong> en la cátedra de <em>Lógica Computacional</em>. En esta segunda etapa en el <strong>IFTS 29</strong> (<em>Desarrollo de Sistemas Web Front End</em>), el <strong>Grupo 21</strong> traduce esa lógica proposicional en propuestas agénticas explicables, apoyadas por una interfaz moderna y accesible.
+              Las premisas lógicas de Matchdeverdad fueron formuladas originalmente por estudiantes del <strong>IFTS 16</strong> en la cátedra de <em>Lógica Computacional</em>. En esta segunda etapa en el <strong>IFTS 29</strong> (<em>Desarrollo de Sistemas Web Front End</em>), el <strong>Grupo 21</strong> traduce esa lógica proposicional en propuestas agénticas explicables, apoyadas por diagramas interactivos y una interfaz moderna.
             </div>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- SECCIÓN 02: LAS DOS SENTENCIAS DEL BLOQUE -->
+    <!-- SECCIÓN 02: REGLAS DEL BLOQUE -->
     <section id="sentencias" class="content-section" aria-labelledby="sentencias-title">
       <div class="container">
         <div class="section-header">
@@ -277,14 +241,14 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 03: PROPUESTA 1 (FRASE 1 · R1) -->
+    <!-- SECCIÓN 03: PROPUESTA 1 (R1) + DIAGRAMA INTERACTIVO -->
     <section id="propuesta-1" class="content-section" aria-labelledby="p1-title">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">03 · Propuesta Agéntica 1 (R1)</span>
           <h2 id="p1-title" class="section-title">MatchFinder Agent · Búsqueda Inteligente</h2>
           <p class="section-desc">
-            Motor de radar barrial que detecta vacantes, filtra postulantes por geocercanía (&le; 5 km) y disponibilidad horaria, y le entrega al capitán las mejores recomendaciones.
+            Motor de radar barrial que detecta vacantes, filtra postulantes por geocercanía (&le; 5 km) y disponibilidad horaria, y propone las mejores opciones al capitán.
           </p>
         </div>
 
@@ -292,53 +256,112 @@
           <strong style="color: var(--turf-neon);">Sentencia R1:</strong> «Si faltan jugadores y hay candidatos compatibles con la zona y el horario, el sistema propone esos candidatos al organizador.»
         </div>
 
-        <!-- Pizarra Táctica de Flujo: R1 -->
-        <div class="tactic-flowboard">
-          <div class="flowboard-header">
-            <h3 class="flowboard-title">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--turf-neon)" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Recorrido Agéntico Paso a Paso · FRASE 1 (R1)
-            </h3>
-            <span class="radar-badge">ALTO CONTRASTE TÁCTICO</span>
+        <!-- Panel del Diagrama Interactivo R1 -->
+        <div class="diagram-interactive-panel">
+          <div class="diagram-toolbar">
+            <div class="diagram-header-left">
+              <h3 class="diagram-title">Diagrama Interactivo · Flujo R1</h3>
+              <span class="radar-pill">SVG DINÁMICO</span>
+            </div>
+
+            <div class="diagram-controls-row">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Simular Recorrido:</span>
+              <button type="button" id="r1-mode-standard" class="flow-mode-btn active">Camino Estándar (Éxito)</button>
+              <button type="button" id="r1-mode-edge" class="flow-mode-btn">Caso Límite (Extensión 10 km)</button>
+              <button type="button" id="r1-step-prev" class="flow-mode-btn" title="Paso anterior">&larr;</button>
+              <button type="button" id="r1-step-next" class="flow-mode-btn" title="Paso siguiente">&rarr;</button>
+            </div>
           </div>
 
-          <div class="flow-steps-grid">
-            <!-- Paso 1 -->
-            <div class="flow-step-node">
-              <span class="step-num-badge">PASO 01 · EVENTO</span>
-              <h4 class="step-title">Detección de Vacante</h4>
-              <p class="step-desc">
-                El sistema detecta que el quórum del partido es menor a 10 jugadores confirmados (ej. baja de último momento).
-              </p>
+          <div class="diagram-workspace">
+            <!-- Diagrama SVG Vectorial R1 -->
+            <div class="svg-diagram-wrapper">
+              <svg id="svg-diagram-r1" class="flow-interactive-svg" viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#22c55e" />
+                  </marker>
+                  <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+                  </marker>
+                  <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#475569" />
+                  </marker>
+                </defs>
+
+                <!-- Conexiones / Flechas R1 -->
+                <path class="flow-path r1-path-standard" d="M 340 70 L 340 110" stroke="#475569" stroke-width="2" marker-end="url(#arrow-green)"/>
+                <path class="flow-path r1-path-standard" d="M 340 190 L 340 230" stroke="#475569" stroke-width="2" marker-end="url(#arrow-green)"/>
+                <path class="flow-path r1-path-standard" d="M 340 320 L 340 370" stroke="#475569" stroke-width="2" marker-end="url(#arrow-green)"/>
+                <!-- Rama alternativa / Caso Límite -->
+                <path class="flow-path r1-path-edge" d="M 425 275 L 540 275 L 540 370" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow-amber)"/>
+
+                <!-- NODO 1: Inicio -->
+                <g id="r1-n1" class="flow-node">
+                  <rect x="230" y="20" width="220" height="50" rx="25" fill="#0b172c" stroke="#22c55e" stroke-width="2"/>
+                  <text x="340" y="44" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" text-anchor="middle">EVENTO: Quórum de Cancha</text>
+                  <text x="340" y="58" fill="#94a3b8" font-size="10" text-anchor="middle">Inicio del monitoreo de convocatoria</text>
+                </g>
+
+                <!-- NODO 2: Decisión 1 (Rombo) -->
+                <g id="r1-n2" class="flow-node">
+                  <polygon points="340,110 425,150 340,190 255,150" fill="#0e2242" stroke="#38bdf8" stroke-width="2"/>
+                  <text x="340" y="146" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Faltan jugadores?</text>
+                  <text x="340" y="160" fill="#a7f3d0" font-size="10" text-anchor="middle">Confirmados &lt; 10</text>
+                </g>
+                <text x="350" y="215" fill="#22c55e" font-weight="800" font-size="11">SÍ</text>
+
+                <!-- NODO 3: Decisión 2 (Rombo) -->
+                <g id="r1-n3" class="flow-node">
+                  <polygon points="340,230 425,275 340,320 255,275" fill="#0e2242" stroke="#38bdf8" stroke-width="2"/>
+                  <text x="340" y="270" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Candidatos compatibles?</text>
+                  <text x="340" y="284" fill="#a7f3d0" font-size="10" text-anchor="middle">Radio &le; 5 km y horario</text>
+                </g>
+                <text x="350" y="350" fill="#22c55e" font-weight="800" font-size="11">SÍ</text>
+                <text x="450" y="265" fill="#f59e0b" font-weight="800" font-size="11">NO / DESCARTE</text>
+
+                <!-- NODO 4: Acción Agéntica Final R1 -->
+                <g id="r1-n4" class="flow-node">
+                  <rect x="200" y="370" width="280" height="80" rx="12" fill="#064e3b" stroke="#22c55e" stroke-width="2.5"/>
+                  <text x="340" y="398" fill="#a7f3d0" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="15" text-anchor="middle" letter-spacing="0.5">ACCIÓN AGÉNTICA (R1)</text>
+                  <text x="340" y="418" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" text-anchor="middle">Propone candidatos al organizador</text>
+                  <text x="340" y="434" fill="#6ee7b7" font-size="10" text-anchor="middle">Invitación directa por WhatsApp con 1 clic</text>
+                </g>
+
+                <!-- NODO 5: Caso Límite / Intervención Humana -->
+                <g id="r1-n5" class="flow-node">
+                  <rect x="440" y="370" width="200" height="80" rx="12" fill="#291b05" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 3"/>
+                  <text x="540" y="398" fill="#fbbf24" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="14" text-anchor="middle">CASO LÍMITE (PROPONE)</text>
+                  <text x="540" y="416" fill="#ffffff" font-size="11" text-anchor="middle">Ampliar radar a 10 km</text>
+                  <text x="540" y="432" fill="#cbd5e1" font-size="9.5" text-anchor="middle">o generar link temporal externo</text>
+                </g>
+              </svg>
             </div>
 
-            <!-- Paso 2 -->
-            <div class="flow-step-node">
-              <span class="step-num-badge">PASO 02 · RADAR</span>
-              <h4 class="step-title">Escaneo Geocercano</h4>
-              <p class="step-desc">
-                El agente consulta el padrón comunitario de jugadores activos en un radio &le; 5 km de la cancha con franja horaria coincidente.
-              </p>
-            </div>
+            <!-- Ficha Táctica Lateral (Inspector) -->
+            <aside class="diagram-inspector-card" aria-label="Ficha técnica del paso seleccionado">
+              <span id="r1-inspector-tag" class="inspector-tag">Paso 04 · Acción Agéntica R1</span>
+              <h4 id="r1-inspector-title" class="inspector-node-title">Proponer Candidatos al Organizador</h4>
 
-            <!-- Paso 3 -->
-            <div class="flow-step-node">
-              <span class="step-num-badge">PASO 03 · CONDICIÓN</span>
-              <h4 class="step-title">¿Hay Postulantes?</h4>
-              <p class="step-desc">
-                Evalúa si el conjunto de candidatos compatibles es mayor a cero. Ordena por índice de puntualidad y reputación de juego limpio.
-              </p>
-            </div>
+              <div class="inspector-field">
+                <label>Datos de Entrada:</label>
+                <p id="r1-inspector-inputs">Top 3 postulantes compatibles seleccionados por el algoritmo de radar.</p>
+              </div>
 
-            <!-- Paso 4 -->
-            <div class="flow-step-node flow-step-action">
-              <span class="step-num-badge" style="background: rgba(34, 197, 94, 0.3); color: #fff;">PASO 04 · ACCIÓN</span>
-              <h4 class="step-title">Proponer al Capitán</h4>
-              <p class="step-desc" style="color: #d1fae5;">
-                El agente despliega tarjetas de candidatos sugeridos en el panel del capitán con opción de enviar invitación inmediata por WhatsApp.
-              </p>
-              <span class="action-highlight-tag tag-green">✓ CONSECUENCIA R1 CUMPLIDA</span>
-            </div>
+              <div class="inspector-field">
+                <label>Evaluación Lógica:</label>
+                <p id="r1-inspector-logic">Genera tarjetas de sugerencia ordenadas por índice de puntualidad y reputación de juego limpio.</p>
+              </div>
+
+              <div class="inspector-field">
+                <label>Decisión de Diseño:</label>
+                <p id="r1-inspector-rationale">Cumple taxativamente la FRASE 1. El sistema sugiere; el capitán toma la decisión final con 1 clic.</p>
+              </div>
+
+              <div class="inspector-tip">
+                💡 <strong>Interactividad:</strong> Hacé clic en cualquier nodo o cambiá de modo arriba para ver la ficha en vivo.
+              </div>
+            </aside>
           </div>
         </div>
 
@@ -381,7 +404,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 04: PROPUESTA 2 (FRASE 2 · R2) -->
+    <!-- SECCIÓN 04: PROPUESTA 2 (R2) + DIAGRAMA INTERACTIVO -->
     <section id="propuesta-2" class="content-section" aria-labelledby="p2-title">
       <div class="container">
         <div class="section-header">
@@ -396,53 +419,111 @@
           <strong style="color: var(--urgency-amber);">Sentencia R2:</strong> «Si faltan jugadores, quedan menos de tres horas y no hay candidatos compatibles, el sistema alerta al organizador sin cancelar el partido automáticamente.»
         </div>
 
-        <!-- Pizarra Táctica de Flujo: R2 -->
-        <div class="tactic-flowboard">
-          <div class="flowboard-header">
-            <h3 class="flowboard-title" style="color: var(--urgency-amber);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--urgency-amber)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Recorrido Agéntico Paso a Paso · FRASE 2 (R2)
-            </h3>
-            <span class="radar-badge" style="color: var(--urgency-amber); border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.15);">PROTOCOLO DE URGENCIA</span>
+        <!-- Panel del Diagrama Interactivo R2 -->
+        <div class="diagram-interactive-panel">
+          <div class="diagram-toolbar">
+            <div class="diagram-header-left">
+              <h3 class="diagram-title" style="color: var(--urgency-amber);">Diagrama Interactivo · Flujo R2</h3>
+              <span class="radar-pill" style="color: var(--urgency-amber); border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.15);">PROTOCOLO DE URGENCIA</span>
+            </div>
+
+            <div class="diagram-controls-row">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Simular Recorrido:</span>
+              <button type="button" id="r2-mode-standard" class="flow-mode-btn flow-mode-btn-amber active">Alerta Prioritaria (NO Cancela)</button>
+              <button type="button" id="r2-mode-edge" class="flow-mode-btn flow-mode-btn-amber">Escalamiento a 45 min</button>
+              <button type="button" id="r2-step-prev" class="flow-mode-btn" title="Paso anterior">&larr;</button>
+              <button type="button" id="r2-step-next" class="flow-mode-btn" title="Paso siguiente">&rarr;</button>
+            </div>
           </div>
 
-          <div class="flow-steps-grid">
-            <!-- Paso 1 -->
-            <div class="flow-step-node flow-step-urgency">
-              <span class="step-num-badge step-badge-amber">PASO 01 · RELOJ</span>
-              <h4 class="step-title">Monitoreo de Tiempo</h4>
-              <p class="step-desc">
-                El cronómetro del servidor detecta que la cuenta regresiva ingresó en la ventana crítica de menos de 180 minutos (3 horas).
-              </p>
+          <div class="diagram-workspace">
+            <!-- Diagrama SVG Vectorial R2 -->
+            <div class="svg-diagram-wrapper">
+              <svg id="svg-diagram-r2" class="flow-interactive-svg" viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg">
+                <!-- Conexiones / Flechas R2 -->
+                <path class="flow-path r2-path-standard" d="M 340 60 L 340 100" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
+                <path class="flow-path r2-path-standard" d="M 340 180 L 340 220" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
+                <path class="flow-path r2-path-standard" d="M 340 300 L 340 340" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
+                <path class="flow-path r2-path-standard" d="M 340 420 L 340 450" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
+                <!-- Rama Caso Límite a 45 min -->
+                <path class="flow-path r2-path-edge" d="M 430 380 L 530 380 L 530 450" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow-amber)"/>
+
+                <!-- NODO 1: Inicio Cronómetro -->
+                <g id="r2-n1" class="flow-node">
+                  <rect x="220" y="15" width="240" height="45" rx="22" fill="#0b172c" stroke="#f59e0b" stroke-width="2"/>
+                  <text x="340" y="38" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">CRONÓMETRO: Cuenta Regresiva</text>
+                  <text x="340" y="50" fill="#fcd34d" font-size="9" text-anchor="middle">Monitoreo del tiempo previo al turno</text>
+                </g>
+
+                <!-- NODO 2: Decisión 1 -->
+                <g id="r2-n2" class="flow-node">
+                  <polygon points="340,100 420,140 340,180 260,140" fill="#0e2242" stroke="#f59e0b" stroke-width="2"/>
+                  <text x="340" y="136" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Faltan jugadores?</text>
+                  <text x="340" y="150" fill="#fde68a" font-size="10" text-anchor="middle">Confirmados &lt; 10</text>
+                </g>
+                <text x="350" y="205" fill="#f59e0b" font-weight="800" font-size="11">SÍ</text>
+
+                <!-- NODO 3: Decisión 2 -->
+                <g id="r2-n3" class="flow-node">
+                  <polygon points="340,220 420,260 340,300 260,260" fill="#0e2242" stroke="#f59e0b" stroke-width="2"/>
+                  <text x="340" y="254" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Tiempo &lt; 3 horas?</text>
+                  <text x="340" y="268" fill="#fde68a" font-size="10" text-anchor="middle">Ventana crítica (&lt; 180 min)</text>
+                </g>
+                <text x="350" y="325" fill="#f59e0b" font-weight="800" font-size="11">SÍ</text>
+
+                <!-- NODO 4: Decisión 3 -->
+                <g id="r2-n4" class="flow-node">
+                  <polygon points="340,340 430,380 340,420 250,380" fill="#0e2242" stroke="#f59e0b" stroke-width="2"/>
+                  <text x="340" y="374" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Candidatos compatibles?</text>
+                  <text x="340" y="388" fill="#fca5a5" font-size="10" text-anchor="middle">Conjunto vacío (0 postulantes)</text>
+                </g>
+                <text x="350" y="440" fill="#f59e0b" font-weight="800" font-size="11">NO</text>
+                <text x="440" y="372" fill="#ef4444" font-weight="800" font-size="10.5">SIN RESPUESTA</text>
+
+                <!-- NODO 5: Acción R2 -->
+                <g id="r2-n5" class="flow-node">
+                  <rect x="190" y="450" width="300" height="90" rx="12" fill="#3b1702" stroke="#f59e0b" stroke-width="2.5"/>
+                  <text x="340" y="476" fill="#fde68a" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="15" text-anchor="middle">ALERTA PRIORITARIA (R2)</text>
+                  <text x="340" y="496" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" text-anchor="middle">Avisa al capitán con opciones de juego</text>
+                  <text x="340" y="514" fill="#f87171" font-weight="800" font-size="11" text-anchor="middle">🛡 ¡NO CANCELA EL PARTIDO AUTOMÁTICAMENTE!</text>
+                  <text x="340" y="528" fill="#cbd5e1" font-size="9.5" text-anchor="middle">Preserva la seña de la cancha en todo momento</text>
+                </g>
+
+                <!-- NODO 6: Caso Límite a 45 min -->
+                <g id="r2-n6" class="flow-node">
+                  <rect x="430" y="450" width="200" height="90" rx="12" fill="#240c03" stroke="#ef4444" stroke-width="2" stroke-dasharray="5 3"/>
+                  <text x="530" y="476" fill="#fca5a5" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="14" text-anchor="middle">CASO LÍMITE (45 MIN)</text>
+                  <text x="530" y="496" fill="#ffffff" font-size="10.5" text-anchor="middle">Aviso espejo a subcapitán</text>
+                  <text x="530" y="512" fill="#cbd5e1" font-size="9.5" text-anchor="middle">y mensaje a administración del predio</text>
+                  <text x="530" y="526" fill="#fde68a" font-size="9" text-anchor="middle">para coordinar al llegar</text>
+                </g>
+              </svg>
             </div>
 
-            <!-- Paso 2 -->
-            <div class="flow-step-node flow-step-urgency">
-              <span class="step-num-badge step-badge-amber">PASO 02 · QUÓRUM</span>
-              <h4 class="step-title">Verificación de Bajas</h4>
-              <p class="step-desc">
-                Comprueba que todavía no se alcanzaron los 10 jugadores confirmados (hay vacantes pendientes).
-              </p>
-            </div>
+            <!-- Ficha Táctica Lateral R2 -->
+            <aside class="diagram-inspector-card" aria-label="Ficha técnica de urgencia">
+              <span id="r2-inspector-tag" class="inspector-tag" style="color: var(--urgency-amber);">Paso 05 · Acción Agéntica R2</span>
+              <h4 id="r2-inspector-title" class="inspector-node-title">Alerta al Organizador · NO CANCELA</h4>
 
-            <!-- Paso 3 -->
-            <div class="flow-step-node flow-step-urgency">
-              <span class="step-num-badge step-badge-amber">PASO 03 · RADAR VACÍO</span>
-              <h4 class="step-title">Sin Postulantes</h4>
-              <p class="step-desc">
-                El radar barrial confirma que no hay candidatos compatibles en la zona para cubrir las vacantes a tiempo.
-              </p>
-            </div>
+              <div class="inspector-field">
+                <label>Datos de Entrada:</label>
+                <p id="r2-inspector-inputs">Dispositivo del capitán (notificación Push / WhatsApp).</p>
+              </div>
 
-            <!-- Paso 4 -->
-            <div class="flow-step-node flow-step-action-amber">
-              <span class="step-num-badge step-badge-amber" style="background: rgba(245, 158, 11, 0.3); color: #fff;">PASO 04 · ACCIÓN</span>
-              <h4 class="step-title">Alerta sin Cancelar</h4>
-              <p class="step-desc" style="color: #fef3c7;">
-                Dispara alerta prioritaria multi-canal al capitán con alternativas tácticas (jugar 4 vs 4 o dividir costo). <strong>La reserva sigue firme.</strong>
-              </p>
-              <span class="action-highlight-tag tag-amber">⚠ ALERTA ENVIADA · NO CANCELA</span>
-            </div>
+              <div class="inspector-field">
+                <label>Evaluación Lógica:</label>
+                <p id="r2-inspector-logic">Dispara alerta prioritaria con 3 alternativas: jugar 4 vs 4, ampliar radar o dividir costo.</p>
+              </div>
+
+              <div class="inspector-field">
+                <label>Decisión de Diseño:</label>
+                <p id="r2-inspector-rationale">Cumple la restricción esencial de R2: jamás cancela de manera autónoma, salvando la seña económica del grupo.</p>
+              </div>
+
+              <div class="inspector-tip" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #fde68a;">
+                💡 <strong>Interactividad:</strong> Probá cambiar entre el camino de alerta y el caso límite de 45 min con los botones superiores.
+              </div>
+            </aside>
           </div>
         </div>
 
@@ -482,38 +563,38 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 05: LA PIZARRA DEL CAPITÁN (SIMULADOR INTERACTIVO REIMAGINADO) -->
+    <!-- SECCIÓN 05: LA PIZARRA DEL CAPITÁN (SIMULADOR TÁCTICO) -->
     <section id="simulador" class="content-section" aria-labelledby="simulador-title">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">05 · Pizarra Interactiva</span>
-          <h2 id="simulador-title" class="section-title">La Pizarra Táctica del Capitán</h2>
+          <span class="section-eyebrow">05 · Pizarra Táctica en Vivo</span>
+          <h2 id="simulador-title" class="section-title">El Radar de la Canchita</h2>
           <p class="section-desc">
-            Experimente en vivo cómo reacciona el agente ante bajas de último momento, cambios en el reloj pre-partido y disponibilidad de postulantes en el barrio.
+            Interactúe con la cancha de fútbol 5 sintético: baje o confirme jugadores y modifique el reloj para comprobar cómo reacciona el agente ante cada situación.
           </p>
         </div>
 
         <div class="tactic-simulator-wrapper">
           <div class="sim-pitch-console">
 
-            <!-- Lado Izquierdo: Cancha Interactiva con Camisetas Clickeables -->
+            <!-- Lado Izquierdo: Cancha Sintética Interactiva -->
             <div class="interactive-pitch-board">
               <div class="pitch-headline">
-                <span>Cancha Fútbol 5 · Pizarra Táctica</span>
+                <span>Cancha Fútbol 5 · Táctica en Vivo</span>
                 <span id="sim-quorum-text">QUÓRUM: <strong>8 / 10</strong> (FALTAN 2)</span>
               </div>
 
-              <!-- Grid de 10 Camisetas Interactivas -->
+              <!-- 10 Camisetas Interactivas Clickeables -->
               <div class="interactive-players-grid" id="interactive-slots">
-                <!-- Se inyectan dinámicamente con JS -->
+                <!-- Se inyectan con main.js -->
               </div>
 
               <p class="pitch-instruction">
-                💡 <strong>Hacé clic en cualquier camiseta</strong> para simular que un jugador se baja o confirma.
+                ⚽ <strong>Hacé clic en cualquier camiseta</strong> para simular una baja de último momento o una nueva confirmación.
               </p>
             </div>
 
-            <!-- Lado Derecho: Consola de Parámetros y Respuesta del Agente -->
+            <!-- Lado Derecho: Controles y Respuesta Agéntica -->
             <div class="tactical-control-console">
 
               <!-- Selector de Tiempo Restante -->
@@ -523,17 +604,17 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <div class="time-selector-buttons">
-                  <button type="button" class="time-btn" data-time="5h">5 Horas Antes (Margen Seguro)</button>
+                  <button type="button" class="time-btn" data-time="5h">4 Horas Antes (Margen Seguro)</button>
                   <button type="button" class="time-btn active" data-time="2h">2 Horas (&lt; 3hs Urgencia)</button>
-                  <button type="button" class="time-btn" data-time="30m">30 Minutos (Caso Límite)</button>
+                  <button type="button" class="time-btn" data-time="30m">30 Minutos (Emergencia)</button>
                 </div>
               </div>
 
-              <!-- Selector de Radar Barrial -->
+              <!-- Switch de Radar Barrial -->
               <div class="control-card">
                 <div class="radar-switch-row">
                   <div>
-                    <strong style="color: var(--text-pure); font-size: 0.95rem;">2. Radar de Candidatos en Zona (&le; 5 km)</strong>
+                    <strong style="color: var(--text-pure); font-size: 0.94rem;">2. Radar de Candidatos en Zona (&le; 5 km)</strong>
                     <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">Disponibilidad de jugadores libres en el barrio</p>
                   </div>
                   <button type="button" id="radar-toggle-btn" class="switch-toggle-btn active">
@@ -550,7 +631,7 @@
                 </div>
 
                 <p id="agent-output-body" class="output-body">
-                  Faltan 2 jugadores y el radar detectó postulantes compatibles en la zona. El agente MatchFinder presenta sugerencias directas al capitán.
+                  Faltan 2 jugadores y el radar detectó postulantes en &le; 5 km disponibles en el horario. El agente propone a los mejores candidatos directamente al capitán.
                 </p>
 
                 <!-- Ficha de Candidato Recomendado (Visible en R1) -->
@@ -558,35 +639,19 @@
                   <div class="candidate-avatar">F</div>
                   <div class="candidate-data">
                     <div class="candidate-name">Facundo "El Rayo" M.</div>
-                    <div class="candidate-meta">A 1.8 km de la cancha · 4.9★ puntualidad · Delantero</div>
+                    <div class="candidate-meta">A 1.8 km · 4.9★ puntualidad · Delantero libre</div>
                   </div>
-                  <button type="button" class="btn-invite-quick" onclick="alert('Propuesta enviada al capitán para invitar a Facundo con 1 clic.')">
+                  <button type="button" class="btn-invite-quick" onclick="alert('Propuesta enviada al capitán: Facundo fue notificado para unirse al partido de las 20:00 hs.')">
                     Invitar con 1 Clic
                   </button>
                 </div>
 
                 <!-- Badge de No Cancelación (Visible en R2) -->
                 <div id="no-cancel-badge" style="display: none; margin-top: 10px;">
-                  <span class="action-highlight-tag tag-amber" style="font-size: 0.85rem; padding: 10px 16px;">
+                  <span class="radar-pill" style="color: var(--urgency-amber); border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.15); font-size: 0.85rem; padding: 8px 14px;">
                     🛡 RESERVA ASEGURADA: EL AGENTE NUNCA CANCELA EL PARTIDO AUTOMÁTICAMENTE
                   </span>
                 </div>
-              </div>
-
-              <!-- Botones de Escenarios Rápidos -->
-              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                <button type="button" id="sim-preset-r1" class="btn btn-secondary" style="padding: 8px 14px; font-size: 0.78rem;">
-                  Probar Caso R1 (Faltan 2 · Hay Candidatos)
-                </button>
-                <button type="button" id="sim-preset-r2" class="btn btn-amber" style="padding: 8px 14px; font-size: 0.78rem;">
-                  Probar Caso R2 (Faltan 3 · &lt; 3hs · Sin Candidatos)
-                </button>
-                <button type="button" id="sim-preset-edge1" class="btn btn-secondary" style="padding: 8px 14px; font-size: 0.78rem;">
-                  Ver Caso Límite R1
-                </button>
-                <button type="button" id="sim-preset-edge2" class="btn btn-secondary" style="padding: 8px 14px; font-size: 0.78rem;">
-                  Ver Caso Límite R2
-                </button>
               </div>
 
             </div>
@@ -596,14 +661,14 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 06: EQUIPO Y APORTES (GRUPO 21) -->
+    <!-- SECCIÓN 06: EQUIPO (GRUPO 21) -->
     <section id="equipo" class="content-section" aria-labelledby="equipo-title">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">06 · Integrantes del Grupo</span>
-          <h2 id="equipo-title" class="section-title">Grupo 21 · Trabajo Colaborativo</h2>
+          <h2 id="equipo-title" class="section-title">Grupo 21 · Desarrollo Front End</h2>
           <p class="section-desc">
-            Construcción 100% agéntica: nosotros dirigimos las directivas, la arquitectura de flujos y los casos límite; la inteligencia artificial asistió en la generación del código.
+            Construcción 100% agéntica: nosotros definimos las directivas, la arquitectura de flujos interactivos y los casos límite; la inteligencia artificial asistió en la generación del código.
           </p>
         </div>
 
@@ -614,7 +679,7 @@
             <p class="team-role">Front End &amp; Diseño UI/UX</p>
             <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">Cañuelas · GitHub: @fguzman3026</p>
             <div class="team-contribution">
-              <strong>Aporte en TP3:</strong> Dirección del prompt para la estética de cancha nocturna ("Tactical Pitch"), paleta de alto contraste, microinteracciones de camisetas y diseño de la pizarra de quórum.
+              <strong>Aporte en TP3:</strong> Dirección de arte de cancha sintética nocturna, paleta de alto contraste, tipografía deportiva <em>Barlow Condensed</em> y diseño de las camisetas de quórum.
             </div>
           </article>
 
@@ -634,7 +699,7 @@
             <p class="team-role">Arquitectura &amp; Testing</p>
             <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">Mar del Plata · GitHub: @Apoteotico</p>
             <div class="team-contribution">
-              <strong>Aporte en TP3:</strong> Configuración del entorno de empaquetado en Vite, verificación de compilación sin errores (`npm run build`), testing responsive en desktop y trazado de los flujos de decisión.
+              <strong>Aporte en TP3:</strong> Configuración del entorno en Vite, verificación de compilación sin errores (`npm run build`), testing responsive en desktop y trazado vectorial interactivo de los diagramas SVG.
             </div>
           </article>
 
@@ -644,20 +709,9 @@
             <p class="team-role">Coordinación &amp; UX Interactiva</p>
             <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">CABA · GitHub: @GuiLeCha</p>
             <div class="team-contribution">
-              <strong>Aporte en TP3:</strong> Coordinación general de las directivas al agente de IA, diseño conceptual de la Pizarra Táctica del Capitán en tiempo real y redacción de los casos límite de intervención humana.
+              <strong>Aporte en TP3:</strong> Coordinación general de las directivas al agente de IA, arquitectura del simulador interactivo de la Pizarra del Capitán y redacción de los casos límite de intervención humana.
             </div>
           </article>
-        </div>
-
-        <!-- Evidencia de Revisión y Colaboración Cruzada -->
-        <div style="background: var(--pitch-surface); border: 2px solid var(--pitch-border-glow); border-radius: var(--radius-lg); padding: 26px; margin-top: 32px;">
-          <h4 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--turf-neon); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; text-transform: uppercase;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Evidencia de Revisión y Mejora Colaborativa (Rúbrica Oficial)
-          </h4>
-          <p style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6;">
-            Durante la revisión inicial entre <strong>Guillermo Chacon</strong> y <strong>Florencia Guzmán</strong>, se constató que la primera versión generada por el agente de IA para la Frase 2 intentaba cancelar el partido automáticamente en la base de datos para "liberar al usuario". Florencia observó que esto quebraba de forma flagrante la consigna docente (<em>"sin cancelar el partido automáticamente"</em>) y que en la vida real hacía perder la seña de la cancha. A partir de esa observación, se reescribió la regla para transformarla en una <strong>Alerta Prioritaria con Protocolo de Escalamiento Humano</strong>, salvaguardando la reserva del grupo.
-          </p>
         </div>
       </div>
     </section>
@@ -668,20 +722,20 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
-        <div style="display: flex; align-items: center; gap: 14px;">
-          <img src="/logos/S07.webp" alt="Logo de Matchdeverdad" width="40" height="40" style="border-radius: 6px;" />
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <img src="/logos/S07.webp" alt="Logo de Matchdeverdad" width="38" height="38" style="border-radius: 6px;" />
           <div>
             <strong style="color: var(--text-pure); font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase;">Matchdeverdad</strong>
-            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">Fútbol 5 &amp; Automatización Agéntica</p>
+            <p style="font-size: 0.76rem; color: var(--text-muted); margin: 0;">Fútbol 5 &amp; Automatización Agéntica</p>
           </div>
         </div>
 
-        <div style="font-size: 0.88rem; color: var(--text-secondary);">
+        <div style="font-size: 0.86rem; color: var(--text-secondary);">
           <span>IFTS 29 · Tecnicatura Superior en Desarrollo de Software</span> | <span>Desarrollo de Sistemas Web Front End (2026)</span>
         </div>
 
         <div>
-          <a href="https://github.com/GuiLeCha" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.82rem;">
+          <a href="https://github.com/GuiLeCha" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 7px 14px; font-size: 0.8rem;">
             Ver en GitHub
           </a>
         </div>
