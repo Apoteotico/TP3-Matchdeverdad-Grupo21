@@ -30,16 +30,16 @@
         <ul class="nav-links">
           <li><a href="#hero" class="nav-link active">Inicio</a></li>
           <li><a href="#startup" class="nav-link">Startup</a></li>
-          <li><a href="#sentencias" class="nav-link">Sentencias</a></li>
-          <li><a href="#propuesta-1" class="nav-link">Propuesta 1</a></li>
-          <li><a href="#propuesta-2" class="nav-link">Propuesta 2</a></li>
+          <li><a href="#sentencias" class="nav-link">Reglas</a></li>
+          <li><a href="#propuesta-1" class="nav-link">Flujo R1</a></li>
+          <li><a href="#propuesta-2" class="nav-link">Flujo R2</a></li>
           <li><a href="#simulador" class="nav-link">Pizarra</a></li>
           <li><a href="#equipo" class="nav-link">Equipo</a></li>
         </ul>
       </nav>
 
       <div class="nav-meta-badge">
-        IFTS 29 · Grupo 21 · S07-A
+        <span class="nav-meta-dot" aria-hidden="true"></span>IFTS 29 · Grupo 21 · S07-A
       </div>
     </div>
   </header>
@@ -190,7 +190,7 @@
               </div>
               <div class="breakdown-box">
                 <span>Condición Lógica</span>
-                <strong>FaltanJugadores ∧ CandidatosCompatibles</strong>
+                <strong>(p ∧ q) → s</strong>
               </div>
               <div class="breakdown-box">
                 <span>Acción del Agente</span>
@@ -221,7 +221,7 @@
               </div>
               <div class="breakdown-box">
                 <span>Condición Compuesta</span>
-                <strong>FaltanJugadores ∧ Tiempo&lt;3h ∧ ¬Candidatos</strong>
+                <strong>(p ∧ r ∧ ¬q) → (t ∧ ¬u)</strong>
               </div>
               <div class="breakdown-box">
                 <span>Acción del Agente</span>
@@ -237,6 +237,23 @@
               <strong>Principio de Diseño:</strong> Cancelar unilateralmente ocasionaría la pérdida irremediable de la seña pagada a la canchita.
             </p>
           </article>
+        </div>
+
+        <!-- Diccionario proposicional -->
+        <div class="prop-dictionary" aria-labelledby="dict-title">
+          <h3 id="dict-title" class="dict-title">Diccionario proposicional</h3>
+          <dl class="dict-grid">
+            <div class="dict-item"><dt>p</dt><dd>Faltan jugadores para el quórum <small>(confirmados &lt; 10 · ¬p: equipo completo 10/10)</small></dd></div>
+            <div class="dict-item"><dt>q</dt><dd>Hay candidatos compatibles con la zona y el horario <small>(≤ 5 km, ± 15 min · ¬q: radar vacío)</small></dd></div>
+            <div class="dict-item"><dt>r</dt><dd>Quedan menos de tres horas para el partido <small>(&lt; 180 min · ¬r: margen de 3 h o más)</small></dd></div>
+            <div class="dict-item"><dt>s</dt><dd>El sistema propone candidatos al organizador</dd></div>
+            <div class="dict-item"><dt>t</dt><dd>El sistema alerta al organizador</dd></div>
+            <div class="dict-item"><dt>u</dt><dd>El sistema cancela el partido automáticamente <small>(¬u es un invariante: nunca se cancela solo)</small></dd></div>
+          </dl>
+          <div class="dict-formulas">
+            <code><b>R1</b> (p ∧ q) → s</code>
+            <code class="is-amber"><b>R2</b> (p ∧ r ∧ ¬q) → (t ∧ ¬u)</code>
+          </div>
         </div>
       </div>
     </section>
@@ -260,63 +277,79 @@
         <div class="visual-flow-container" id="flow-1">
           <div class="flow-interactive-bar">
             <h3 class="flow-title">Diagrama de Flujo · Regla R1</h3>
-            <div class="flow-mode-tabs">
-              <button type="button" class="flow-tab-btn active" data-mode="all">Ver Flujo Completo</button>
-              <button type="button" class="flow-tab-btn" data-mode="yes">Camino SÍ · Propuesta Exitosa</button>
-              <button type="button" class="flow-tab-btn" data-mode="no">Camino NO · Caso Límite</button>
+            <div class="flow-mode-tabs" role="group" aria-label="Modo de lectura del diagrama R1">
+              <button type="button" class="flow-tab-btn active" data-mode="all" aria-pressed="true">Ver Flujo Completo</button>
+              <button type="button" class="flow-tab-btn" data-mode="yes" aria-pressed="false">Camino SÍ</button>
+              <button type="button" class="flow-tab-btn" data-mode="no" aria-pressed="false">Camino NO</button>
             </div>
           </div>
 
+          <p class="flow-legend" aria-hidden="true">
+            <span class="legend-dot legend-yes"></span> Camino SÍ (se cumple la condición)
+            <span class="legend-dot legend-no"></span> Camino NO (R1 no se dispara)
+          </p>
+
           <div class="flow-tree" data-view="all">
-            <!-- Nodo 1: Inicio -->
-            <div class="v-node">
-              <span class="v-node-step">Paso 01 · Inicio del Evento</span>
-              <div class="v-node-title">Quórum Abierto en Cancha</div>
-              <div class="v-node-desc">Monitoreo continuo de la planilla de jugadores confirmados.</div>
-            </div>
-
-            <div class="v-stem"></div>
-
-            <!-- Nodo 2: Decisión 1 -->
-            <div class="v-decision">
-              <span class="v-node-step">Evaluación 01 · Condición</span>
-              <div class="v-node-title">¿Faltan Jugadores en el Turno?</div>
-              <div class="v-node-desc">Comprueba si Confirmados &lt; 10.</div>
-            </div>
-
-            <div class="v-stem"></div>
-
-            <!-- Nodo 3: Decisión 2 -->
-            <div class="v-decision">
-              <span class="v-node-step">Evaluación 02 · Radar Barrial</span>
-              <div class="v-node-title">¿Hay Candidatos Compatibles en Zona y Horario?</div>
-              <div class="v-node-desc">Radio &le; 5 km del predio deportivo con franja horaria coincidente.</div>
-            </div>
-
-            <div class="v-fork">
-              <div class="v-fork-bar"></div>
-            </div>
-
-            <!-- Bifurcación SÍ vs NO -->
-            <div class="v-branches-row">
-              <!-- Rama SÍ -->
-              <div class="v-branch branch-yes">
-                <span class="v-branch-tag tag-yes">SÍ · Cumple la Regla R1</span>
-                <div class="v-action-card">
-                  <div class="card-title">Acción Agéntica R1</div>
-                  <div class="card-body">
-                    El sistema clasifica a los postulantes por índice de puntualidad y reputación de juego limpio, y despliega tarjetas de recomendación directa en el dispositivo del organizador con botón de invitación en 1 clic.
-                  </div>
+            <!-- Inicio -->
+            <div class="flow-row">
+              <div class="flow-main">
+                <div class="v-node">
+                  <span class="v-node-step">Inicio</span>
+                  <div class="v-node-title">Planilla del turno abierta</div>
+                  <div class="v-node-desc">El sistema monitorea la lista de jugadores confirmados.</div>
                 </div>
               </div>
+            </div>
 
-              <!-- Rama NO (Caso Límite) -->
-              <div class="v-branch branch-no">
-                <span class="v-branch-tag tag-no">NO / DESCARTE · Caso Límite</span>
-                <div class="v-action-card v-action-amber">
-                  <div class="card-title">Intervención Humana (Propone)</div>
+            <div class="flow-down is-yes"><span class="v-stem"></span></div>
+
+            <!-- Decisión p -->
+            <div class="flow-row">
+              <div class="flow-main">
+                <div class="v-decision">
+                  <span class="v-node-step">Decisión 1 · variable p</span>
+                  <div class="v-node-title">¿Faltan jugadores?</div>
+                  <div class="v-node-desc">Confirmados &lt; 10</div>
+                </div>
+              </div>
+              <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
+              <div class="flow-side is-no">
+                <div class="v-exit">
+                  <div class="card-title">p = Falso · Equipo completo</div>
+                  <div class="card-body">Con 10 confirmados no hay nada que cubrir. R1 no se dispara y no se propone a nadie.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-down is-yes"><span class="flow-edge-tag tag-yes">SÍ</span><span class="v-stem"></span></div>
+
+            <!-- Decisión q -->
+            <div class="flow-row">
+              <div class="flow-main">
+                <div class="v-decision">
+                  <span class="v-node-step">Decisión 2 · variable q</span>
+                  <div class="v-node-title">¿Hay candidatos compatibles con la zona y el horario?</div>
+                  <div class="v-node-desc">Radio ≤ 5 km y franja horaria coincidente</div>
+                </div>
+              </div>
+              <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
+              <div class="flow-side is-no">
+                <div class="v-exit">
+                  <div class="card-title">q = Falso · R1 no se dispara</div>
+                  <div class="card-body">Sin candidatos no hay propuesta posible. El agente ofrece ampliar la zona a 10 km (intervención humana) y, si queda menos de 3 h, se evalúa la regla R2.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-down is-yes"><span class="flow-edge-tag tag-yes">SÍ</span><span class="v-stem"></span></div>
+
+            <!-- Resultado s -->
+            <div class="flow-row">
+              <div class="flow-main is-yes">
+                <div class="v-action-card">
+                  <div class="card-title">s · Propone los candidatos al organizador</div>
                   <div class="card-body">
-                    Si el capitán rechaza a los sugeridos o no hay perfiles en 5 km, el agente ofrece ampliar la búsqueda a 10 km o genera un enlace temporal con código QR para invitar conocidos por fuera de la plataforma.
+                    (p ∧ q) → s. El agente ordena a los postulantes por puntualidad y juego limpio y los muestra al capitán con un botón de invitación. El organizador decide a quién sumar: el sistema nunca invita por su cuenta.
                   </div>
                 </div>
               </div>
@@ -379,66 +412,102 @@
         </div>
 
         <!-- Diagrama de Flujo Visual e Interactivo (HTML/CSS) R2 -->
-        <div class="visual-flow-container" id="flow-2">
+        <div class="visual-flow-container flow-amber" id="flow-2">
           <div class="flow-interactive-bar">
-            <h3 class="flow-title" style="color: var(--urgency-amber);">Diagrama de Flujo · Regla R2</h3>
-            <div class="flow-mode-tabs">
-              <button type="button" class="flow-tab-btn flow-tab-btn-amber active" data-mode="all">Ver Flujo Completo</button>
-              <button type="button" class="flow-tab-btn flow-tab-btn-amber" data-mode="yes">Camino SÍ · Alerta Prioritaria</button>
-              <button type="button" class="flow-tab-btn flow-tab-btn-amber" data-mode="no">Camino NO · Espera Pasiva</button>
+            <h3 class="flow-title">Diagrama de Flujo · Regla R2</h3>
+            <div class="flow-mode-tabs" role="group" aria-label="Modo de lectura del diagrama R2">
+              <button type="button" class="flow-tab-btn flow-tab-btn-amber active" data-mode="all" aria-pressed="true">Ver Flujo Completo</button>
+              <button type="button" class="flow-tab-btn flow-tab-btn-amber" data-mode="yes" aria-pressed="false">Camino SÍ</button>
+              <button type="button" class="flow-tab-btn flow-tab-btn-amber" data-mode="no" aria-pressed="false">Camino NO</button>
             </div>
           </div>
 
+          <p class="flow-legend" aria-hidden="true">
+            <span class="legend-dot legend-yes"></span> Camino SÍ (se cumple la condición)
+            <span class="legend-dot legend-no"></span> Camino NO (R2 no se dispara)
+          </p>
+
           <div class="flow-tree" data-view="all">
-            <!-- Nodo 1: Cronómetro -->
-            <div class="v-node">
-              <span class="v-node-step" style="color: var(--urgency-amber);">Paso 01 · Control de Tiempo</span>
-              <div class="v-node-title">Cuenta Regresiva Pre-Partido</div>
-              <div class="v-node-desc">El cronómetro monitoriza los minutos restantes para el turno de la cancha.</div>
-            </div>
-
-            <div class="v-stem v-stem-amber"></div>
-
-            <!-- Nodo 2: Decisión 1 -->
-            <div class="v-decision" style="border-color: var(--urgency-amber); box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);">
-              <span class="v-node-step" style="color: var(--urgency-amber);">Evaluación 01 · Quórum y Reloj</span>
-              <div class="v-node-title">¿Faltan Jugadores Y Quedan Menos de 3 Horas?</div>
-              <div class="v-node-desc">Condición: Faltantes &gt; 0 ∧ Tiempo &lt; 180 min.</div>
-            </div>
-
-            <div class="v-stem v-stem-amber"></div>
-
-            <!-- Nodo 3: Decisión 2 -->
-            <div class="v-decision" style="border-color: var(--urgency-amber); box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);">
-              <span class="v-node-step" style="color: var(--urgency-amber);">Evaluación 02 · Disponibilidad Barrial</span>
-              <div class="v-node-title">¿Existen Candidatos Compatibles en la Zona?</div>
-              <div class="v-node-desc">Consulta al radar de jugadores libres a &le; 5 km arrojando 0 postulantes.</div>
-            </div>
-
-            <div class="v-fork">
-              <div class="v-fork-bar" style="background: rgba(245, 158, 11, 0.4);"></div>
-            </div>
-
-            <!-- Bifurcación SÍ vs NO -->
-            <div class="v-branches-row">
-              <!-- Rama SÍ: Se cumple la regla R2 -->
-              <div class="v-branch branch-yes">
-                <span class="v-branch-tag tag-no">SÍ · Urgencia Confirmada (R2)</span>
-                <div class="v-action-card v-action-amber">
-                  <div class="card-title">Alerta al Capitán · NO CANCELA</div>
-                  <div class="card-body">
-                    El sistema emite notificación prioritaria urgente al capitán presentando alternativas operativas (jugar 4 vs 4, dividir costos). <strong>Bajo ninguna circunstancia cancela el partido de forma automática</strong>, preservando la seña pagada a la cancha.
-                  </div>
+            <!-- Inicio -->
+            <div class="flow-row">
+              <div class="flow-main">
+                <div class="v-node">
+                  <span class="v-node-step">Inicio</span>
+                  <div class="v-node-title">Cuenta regresiva del turno</div>
+                  <div class="v-node-desc">El sistema controla la planilla y los minutos que faltan para el pitazo.</div>
                 </div>
               </div>
+            </div>
 
-              <!-- Rama NO: Caso Límite de 45 min -->
-              <div class="v-branch branch-no">
-                <span class="v-branch-tag tag-yes">CASO LÍMITE · Sin Respuesta (45 min)</span>
-                <div class="v-action-card" style="border-color: #ef4444; background: linear-gradient(145deg, #2e0805, #101e3b);">
-                  <div class="card-title" style="color: #fca5a5;">Escalamiento Humano en Cancha</div>
+            <div class="flow-down is-yes"><span class="v-stem"></span></div>
+
+            <!-- Decisión p -->
+            <div class="flow-row">
+              <div class="flow-main">
+                <div class="v-decision">
+                  <span class="v-node-step">Decisión 1 · variable p</span>
+                  <div class="v-node-title">¿Faltan jugadores?</div>
+                  <div class="v-node-desc">Confirmados &lt; 10</div>
+                </div>
+              </div>
+              <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
+              <div class="flow-side is-no">
+                <div class="v-exit">
+                  <div class="card-title">p = Falso · Equipo completo</div>
+                  <div class="card-body">Con 10 confirmados no hay urgencia. R2 no se dispara y no se envía ninguna alerta.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-down is-yes"><span class="flow-edge-tag tag-yes">SÍ</span><span class="v-stem"></span></div>
+
+            <!-- Decisión r -->
+            <div class="flow-row">
+              <div class="flow-main">
+                <div class="v-decision">
+                  <span class="v-node-step">Decisión 2 · variable r</span>
+                  <div class="v-node-title">¿Quedan menos de 3 horas?</div>
+                  <div class="v-node-desc">Tiempo restante &lt; 180 min (estricto)</div>
+                </div>
+              </div>
+              <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
+              <div class="flow-side is-no">
+                <div class="v-exit">
+                  <div class="card-title">r = Falso · Todavía hay margen</div>
+                  <div class="card-body">Con 3 h exactas o más el sistema no alerta: mantiene el radar en modo pasivo y sigue buscando.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-down is-yes"><span class="flow-edge-tag tag-yes">SÍ</span><span class="v-stem"></span></div>
+
+            <!-- Decisión ¬q -->
+            <div class="flow-row">
+              <div class="flow-main">
+                <div class="v-decision">
+                  <span class="v-node-step">Decisión 3 · negación de q</span>
+                  <div class="v-node-title">¿No hay candidatos compatibles?</div>
+                  <div class="v-node-desc">¬q: el radar devuelve 0 postulantes en zona y horario</div>
+                </div>
+              </div>
+              <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
+              <div class="flow-side is-no">
+                <div class="v-exit">
+                  <div class="card-title">q = Verdadero · Aplica R1</div>
+                  <div class="card-body">Si hay candidatos compatibles, R2 no se dispara: se aplica R1 y se los propone al organizador.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-down is-yes"><span class="flow-edge-tag tag-yes">SÍ</span><span class="v-stem"></span></div>
+
+            <!-- Resultado t ∧ ¬u -->
+            <div class="flow-row">
+              <div class="flow-main is-yes">
+                <div class="v-action-card v-action-amber">
+                  <div class="card-title">t ∧ ¬u · Alerta al organizador, sin cancelar</div>
                   <div class="card-body">
-                    Si a 45 minutos del turno el capitán no acusó recibo de la alerta, el sistema dispara notificación espejo al subcapitán y avisa al WhatsApp de la recepción del club para coordinar con los presentes al ingresar al predio.
+                    (p ∧ r ∧ ¬q) → (t ∧ ¬u). El sistema envía una alerta prioritaria al capitán con opciones de contingencia (jugar 4 vs 4, sumar un conocido). <strong>No cancela el partido automáticamente</strong>: la seña y el turno quedan protegidos.
                   </div>
                 </div>
               </div>
@@ -498,19 +567,39 @@
 
             <!-- Lado Izquierdo: Cancha Sintética Interactiva -->
             <div class="interactive-pitch-board">
-              <div class="pitch-headline">
-                <span>Cancha Fútbol 5 · Táctica en Vivo</span>
-                <span id="sim-quorum-text">QUÓRUM: <strong>8 / 10</strong> (FALTAN 2)</span>
+              <div class="led-scoreboard" role="status" aria-live="polite">
+                <div class="led-cell">
+                  <span class="led-label">Confirmados</span>
+                  <span class="led-digits" id="led-confirmed">08/10</span>
+                </div>
+                <div class="led-cell">
+                  <span class="led-label">Faltan</span>
+                  <span class="led-digits" id="led-missing">02</span>
+                </div>
+                <div class="led-cell">
+                  <span class="led-label">Pitazo en</span>
+                  <span class="led-digits led-amber" id="led-time">02:00</span>
+                </div>
               </div>
 
-              <!-- 10 Camisetas Interactivas Clickeables -->
-              <div class="interactive-players-grid" id="interactive-slots">
-                <!-- Se inyectan con main.js -->
+              <div class="pitch-field">
+                <div class="pitch-markings" aria-hidden="true">
+                  <span class="mark-half"></span>
+                  <span class="mark-circle"></span>
+                  <span class="mark-box mark-box-top"></span>
+                  <span class="mark-box mark-box-bottom"></span>
+                </div>
+
+                <!-- 10 Camisetas Interactivas Clickeables -->
+                <div class="interactive-players-grid" id="interactive-slots">
+                  <!-- Se inyectan con main.js -->
+                </div>
               </div>
 
               <p class="pitch-instruction">
-                ⚽ <strong>Hacé clic en cualquier camiseta</strong> para simular una baja de último momento o una nueva confirmación.
+                <strong>Tocá una camiseta</strong> para simular una baja de último momento o una nueva confirmación.
               </p>
+              <span id="sim-quorum-text" class="visually-hidden">Quórum: 8 de 10 confirmados</span>
             </div>
 
             <!-- Lado Derecho: Controles y Respuesta Agéntica -->
@@ -519,60 +608,91 @@
               <!-- Selector de Tiempo Restante -->
               <div class="control-card">
                 <div class="control-title">
-                  <span>1. Tiempo Restante para el Partido</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>1. Tiempo restante para el partido</span>
+                  <span class="control-var">r = tiempo &lt; 3 h</span>
                 </div>
-                <div class="time-selector-buttons">
-                  <button type="button" class="time-btn" data-time="5h">4 Horas Antes (Margen Seguro)</button>
-                  <button type="button" class="time-btn active" data-time="2h">2 Horas (&lt; 3hs Urgencia)</button>
-                  <button type="button" class="time-btn" data-time="30m">30 Minutos (Emergencia)</button>
+                <div class="time-selector-buttons" role="group" aria-label="Tiempo restante para el partido">
+                  <button type="button" class="time-btn" data-minutes="240"><strong>4 h</strong><small>r = F</small></button>
+                  <button type="button" class="time-btn" data-minutes="180"><strong>3 h exactas</strong><small>r = F (borde)</small></button>
+                  <button type="button" class="time-btn active" data-minutes="120"><strong>2 h</strong><small>r = V</small></button>
+                  <button type="button" class="time-btn" data-minutes="30"><strong>30 min</strong><small>r = V</small></button>
                 </div>
               </div>
 
               <!-- Switch de Radar Barrial -->
               <div class="control-card">
                 <div class="radar-switch-row">
-                  <div>
-                    <strong style="color: var(--text-pure); font-size: 0.94rem;">2. Radar de Candidatos en Zona (&le; 5 km)</strong>
-                    <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">Disponibilidad de jugadores libres en el barrio</p>
+                  <div class="radar-switch-text">
+                    <strong>2. Radar de candidatos en zona</strong>
+                    <p>Compatibles con la zona (≤ 5 km) y el horario</p>
                   </div>
-                  <button type="button" id="radar-toggle-btn" class="switch-toggle-btn active">
-                    ACTIVO (Candidatos en 5 km)
+                  <button type="button" id="radar-toggle-btn" class="switch-toggle-btn active" aria-pressed="true">
+                    q = V · Hay candidatos
                   </button>
                 </div>
               </div>
 
               <!-- Panel de Salida del Agente en Tiempo Real -->
-              <div class="live-agentic-output">
+              <div class="live-agentic-output" id="agent-panel" data-tone="green">
+                <div id="agent-logic-formula" class="logic-formula" aria-live="polite">p = V (8/10) · q = V (≤ 5 km) · r = V (02:00 h) ⟹ R1: (p ∧ q) → s [ACTIVA]</div>
                 <div class="output-status-header">
                   <div id="agent-beacon" class="status-beacon"></div>
-                  <h4 id="agent-output-title" class="output-title">REGLA R1 ACTIVADA: PROPONER CANDIDATOS</h4>
+                  <h4 id="agent-output-title" class="output-title">R1 activada: propone candidatos</h4>
                 </div>
 
                 <p id="agent-output-body" class="output-body">
-                  Faltan 2 jugadores y el radar detectó postulantes en &le; 5 km disponibles en el horario. El agente propone a los mejores candidatos directamente al capitán.
+                  Faltan 2 jugadores y el radar detectó postulantes compatibles con la zona y el horario. El agente se los propone al organizador.
                 </p>
 
                 <!-- Ficha de Candidato Recomendado (Visible en R1) -->
                 <div id="candidate-preview" class="candidate-preview-box">
-                  <div class="candidate-avatar">F</div>
+                  <div class="candidate-avatar" id="candidate-avatar" aria-hidden="true">F</div>
                   <div class="candidate-data">
-                    <div class="candidate-name">Facundo "El Rayo" M.</div>
-                    <div class="candidate-meta">A 1.8 km · 4.9★ puntualidad · Delantero libre</div>
+                    <div class="candidate-name" id="candidate-name">Facundo "El Rayo" M.</div>
+                    <div class="candidate-meta" id="candidate-meta">A 1,8 km · 4,9★ puntualidad · Delantero libre</div>
                   </div>
-                  <button type="button" class="btn-invite-quick" onclick="alert('Propuesta enviada al capitán: Facundo fue notificado para unirse al partido de las 20:00 hs.')">
-                    Invitar con 1 Clic
-                  </button>
+                  <button type="button" id="invite-btn" class="btn-invite-quick">Invitar con 1 clic</button>
                 </div>
+                <p id="invite-feedback" class="invite-feedback" role="status" hidden></p>
 
-                <!-- BANNER PROFESIONAL DE ALERTA R2 (SIN ROTURAS DE TEXTO) -->
-                <div id="r2-alert-banner" class="alert-banner-r2" style="display: none;">
-                  <div class="alert-banner-icon">🛡</div>
+                <!-- Cartel profesional de alerta R2 -->
+                <div id="r2-alert-banner" class="alert-banner-r2" role="alert" hidden>
+                  <div class="alert-banner-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
                   <div class="alert-banner-text">
-                    <strong>Reserva de Cancha Protegida</strong>
-                    <p>El agente nunca cancela el partido de forma automática. Tu turno en la cancha 3 y la seña pagada siguen firmes.</p>
+                    <strong>Alerta de urgencia al organizador</strong>
+                    <p>El partido <b>no se cancela automáticamente</b>. El turno en la Cantera F5 y la seña pagada siguen firmes mientras decidís cómo cubrir las vacantes.</p>
+                  </div>
+                  <span class="alert-banner-tag">t = V · u = F</span>
+                </div>
+              </div>
+
+
+              <!-- Valuación proposicional en vivo -->
+              <div class="control-card prop-card" aria-live="polite">
+                <div class="control-title">
+                  <span>3. Valuación proposicional</span>
+                  <button type="button" id="sim-reset-btn" class="btn-reset">Reiniciar</button>
+                </div>
+                <div class="prop-vars">
+                  <span class="prop-chip" id="prop-p" data-state="true"><b>p</b> Faltan jugadores<i>V</i></span>
+                  <span class="prop-chip" id="prop-q" data-state="true"><b>q</b> Candidatos compatibles<i>V</i></span>
+                  <span class="prop-chip" id="prop-r" data-state="true"><b>r</b> Quedan &lt; 3 h<i>V</i></span>
+                </div>
+                <div class="prop-rules">
+                  <div class="prop-rule" id="prop-r1">
+                    <span class="prop-rule-name">R1</span>
+                    <code>(p ∧ q) → s</code>
+                    <span class="prop-rule-state">Antecedente: V · s = V</span>
+                  </div>
+                  <div class="prop-rule" id="prop-r2">
+                    <span class="prop-rule-name">R2</span>
+                    <code>(p ∧ r ∧ ¬q) → (t ∧ ¬u)</code>
+                    <span class="prop-rule-state">Antecedente: F · sin efecto</span>
                   </div>
                 </div>
+                <p class="prop-note">u = F siempre: ninguna regla cancela el partido de forma automática.</p>
               </div>
 
             </div>

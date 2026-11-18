@@ -1,179 +1,250 @@
 # Matchdeverdad — Dos sentencias, dos soluciones | IFTS 29
 ## Práctica Formativa TP3 · Desarrollo de Sistemas Web / Front End (2026 - 2do Cuatrimestre)
 
-Landing page institucional y técnica desarrollada para la presentación de dos propuestas de automatización agéntica para la startup **Matchdeverdad**, abordando el bloque asignado de **Candidatos y urgencia** (Sentencias **FRASE 1 · R1** y **FRASE 2 · R2**).
+Landing page técnica e interactiva desarrollada por el **Grupo 21** para presentar dos propuestas de automatización agéntica aplicadas a la startup **Matchdeverdad**, resolviendo el bloque asignado **Candidatos y urgencia** (Sorteo **S07-A**: Sentencias **FRASE 1 · R1** y **FRASE 2 · R2**).
 
 ---
 
 ## 1. Datos del Proyecto y Asignación Académica
 
-- **Institución:** Instituto de Formación Técnica Superior Nº 29 (IFTS 29).
+- **Institución:** Instituto de Formación Técnica Superior Nº 29 (IFTS 29) — Articulación pedagógica con IFTS 16.
 - **Carrera:** Tecnicatura Superior en Desarrollo de Software.
-- **Asignatura:** Desarrollo de Sistemas Web / Front End.
+- **Asignatura:** Desarrollo de Sistemas Web / Front End (2do Año · 2do Cuatrimestre).
 - **Instancia Evaluativa:** Trabajo Práctico Nº 3 (TP3) – *Dos sentencias, dos soluciones*.
 - **Comisión y Grupo:** Grupo 21.
 - **Asignación Docente Oficial:** Sorteo `S07-A` · Grupo 21.
 - **Startup Asignada:** Matchdeverdad.
-- **Rubro:** Deportes y organización de partidos.
+- **Rubro:** Deportes y organización de partidos de fútbol 5 amateur.
 - **Bloque Asignado:** Candidatos y urgencia.
-- **Objetivo de la Startup:** Organizador de fútbol 5 que ayuda a reunir diez jugadores confirmados.
-- **Logo Oficial:** Asignado e incorporado en formato WebP nativo (`public/logos/S07.webp`).
+- **Objetivo de la Startup:** Organizador inteligente de fútbol 5 que ayuda a reunir diez jugadores confirmados sin poner en riesgo la reserva de la cancha.
+- **Logo Oficial:** Incorporado en formato WebP nativo (`public/logos/S07.webp`) con descarga directa desde la interfaz.
 
 ---
 
-## 2. Integrantes del Grupo y Aportes Concretos
+## 2. Integrantes del Grupo 21 y Aportes Concretos
 
-| Integrante | Rol Principal | Aportes Concretos y Tareas Realizadas |
-| :--- | :--- | :--- |
-| **Florencia Guzmán** | Front End & Diseño UI/UX | Dirección de arte con estética de canchita nocturna (*"Tactical Pitch"*), paleta de alto contraste (verde césped `#10b981`, alertas ámbar `#f59e0b`), tipografía deportiva (*Barlow Condensed*), microinteracciones de camisetas y diseño de la pizarra de quórum. |
-| **Sonia Raquel Andrada** | Lógica de Flujos & Accesibilidad | Desarme analítico de las sentencias R1 y R2 de Matchdeverdad, estructuración semántica de los desplegables `<details>` y validación de navegación accesible por teclado (roles ARIA, focus visible). |
-| **Eitel Hugo Belinzoni** | Arquitectura & Testing | Configuración del entorno de empaquetado en Vite, verificación de compilación sin errores (`npm run build`), testing responsive en desktop y trazado de los flujos de decisión en alto contraste. |
-| **Guillermo Alberto Chacon** | Coordinación & UX Interactiva | Coordinación general de las directivas al agente de IA, diseño conceptual de la Pizarra Táctica del Capitán en tiempo real y redacción de los casos límite de contingencia con intervención humana. |
+| Integrante | Localidad / GitHub | Rol en el Equipo | Aportes Concretos y Tareas Realizadas en el TP3 |
+| :--- | :--- | :--- | :--- |
+| **Florencia Guzmán** | Cañuelas · [`@fguzman3026`](https://github.com/fguzman3026) | Front End & Diseño UI/UX | Dirección de arte con estética de cancha sintética nocturna (*"La Cantera F5"*), definición de paleta de alto contraste (verde césped `#22c55e`, ámbar de urgencia `#f59e0b`, cal blanca), tipografía deportiva (*Barlow Condensed*) y diseño de las 10 camisetas interactivas de la pizarra. |
+| **Sonia Raquel Andrada** | CABA · [`@Raqu28`](https://github.com/Raqu28) | Lógica Proposicional & Accesibilidad | Formalización de las sentencias R1 y R2 recibidas del IFTS 16 en variables atómicas ($p, q, r, s, t, u$), construcción de la tabla de verdad de 8 estados, maquetación semántica de desplegables `<details>` y validación de accesibilidad por teclado (`:focus-visible`, roles ARIA). |
+| **Eitel Hugo Belinzoni** | Mar del Plata · [`@Apoteotico`](https://github.com/Apoteotico) | Arquitectura & Testing | Configuración del entorno en Vite, armado de los árboles de decisión visuales en HTML/CSS con filtros interactivos por rama (*Completo / Camino SÍ / Camino NO*), pruebas de compilación (`npm run build`) y verificación de layout responsive sin desbordes. |
+| **Guillermo Alberto Chacon** | CABA · [`@GuiLeCha`](https://github.com/GuiLeCha) | Coordinación & Simulador Interactivo | Coordinación de prompts y directivas al entorno agéntico, programación de la lógica reactiva de *La Pizarra del Capitán* en `src/main.js`, auditoría de casos borde (ventana de 30 min, invitación en 1 clic) y despliegue en GitHub / Vercel. |
 
-### Evidencia de Colaboración y Revisión entre Integrantes (Rúbrica - Nivel Propone)
-- **Revisión 1 (Chacon & Guzmán — Sentencia R2):** Al analizar la primera generación de código del agente para la Frase 2 (*urgencia con menos de 3 horas y sin candidatos*), el agente había incluido una rama que cancelaba automáticamente el partido en la base de datos para "liberar al usuario". Florencia observó inmediatamente que esta lógica contradecía de forma directa la consigna oficial del sorteo docente (*"sin cancelar el partido automáticamente"*). Guillermo aportó que en el fútbol amateur cancelar sin confirmación del capitán provoca la pérdida económica de la seña pagada a la cancha. Tras este intercambio grupal, se instruyó al agente para reescribir el flujo: la acción se reformuló como una **Alerta Prioritaria Multi-Canal (Push/WhatsApp)** con derivación a intervención humana, manteniendo el turno asegurado.
-- **Revisión 2 (Andrada & Belinzoni — Sentencia R1):** Al examinar la Frase 1 (*búsqueda de candidatos compatibles*), Sonia planteó la necesidad de definir qué constituye "compatibilidad" más allá de un booleano abstracto. Eitel propuso incorporar una doble cota: geográfica (radio inicial &le; 5 km) y horaria (margen de llegada &plusmn; 15 min). Además, se añadió un caso de borde donde, si el organizador rechaza a los postulantes recomendados, el agente no se detiene, sino que ofrece ampliar el radio de cobertura a 10 km o generar un link temporal de invitación compartible.
+### Evidencia de Colaboración y Revisión Cruzada entre Integrantes (Nivel Supera / Propone)
 
----
+Durante el desarrollo realizamos tres rondas internas de revisión de código y lógica sobre lo que generaba el agente de IA:
 
-## 3. Sobre la Startup Matchdeverdad
-
-### Contexto y Origen Académico
-Las condiciones de funcionamiento de Matchdeverdad fueron formuladas originalmente mediante lógica proposicional por estudiantes del **IFTS 16** en la materia *Lógica Computacional*. 
-
-En esta instancia formativa de articulación interinstitucional, el **Grupo 21** del **IFTS 29** toma dicha producción para modelar una solución de arquitectura agéntica comprensible, visual y respaldada por una landing page funcional y accesible.
-
-### Descripción del Servicio y Problemática que Resuelve
-En la organización de partidos de fútbol 5, la falta de confirmación de los diez jugadores necesarios es una causa habitual de partidos suspendidos a último momento, tensiones entre conocidos y penalizaciones económicas por parte de los complejos deportivos. 
-
-**Matchdeverdad** actúa como un asistente inteligente que monitorea el quórum del partido, conecta con una base comunitaria de jugadores cercanos según su posición y horario, y gestiona la cuenta regresiva sin tomar decisiones destructivas.
+1. **Revisión 1 (Guzmán & Chacon — Invariante de No-Cancelación $\neg u$ en R2):**
+   En la primera iteración, el agente había generado para la Frase 2 una rama que daba de baja la reserva del turno cuando faltaban menos de 3 horas y no había candidatos, bajo el supuesto de "liberar al usuario del compromiso". **Florencia** detectó de inmediato que eso violaba textualmente la consigna del sorteo S07-A (*"sin cancelar el partido automáticamente"*). **Guillermo** sumó el argumento de negocio real del fútbol 5 amateur: en cualquier complejo deportivo, cancelar sobre la hora implica perder el 100% de la seña abonada y que encima el grupo se quede sin cancha, cuando muchas veces los equipos prefieren jugar 4 vs 4 o sumar a último momento a un conocido. A partir de esta revisión, rediseñamos el flujo para que el consecuente de R2 sea $(t \land \neg u)$, destacando un escudo visual de **Reserva de Cancha Protegida**.
+2. **Revisión 2 (Andrada & Belinzoni — Tabla de Verdad y Caso Borde $p \land q \land r$ en el Simulador):**
+   Al probar el simulador con la tabla de verdad en mano, **Sonia** notó que cuando el radar barrial estaba activo ($q = V$) y faltaban jugadores ($p = V$), cambiar los botones de tiempo entre *4 Horas* ($\neg r$), *2 Horas* ($r$) y *30 Minutos* ($r$) no producía ningún cambio visible en la respuesta del agente, y además un estilo inline en el indicador luminoso (`beacon.style.background`) dejaba trabado el color gris tras pasar por el estado de búsqueda pasiva. **Eitel** propuso separar explícitamente el estado $p \land q \land \neg r$ (propuesta de candidatos con margen holgado) del caso borde $p \land q \land r$ (propuesta de incorporación inmediata en ventana $< 3\text{h}$, donde R1 prevalece sobre R2 porque $q = V$ anula $\neg q$), y reemplazar los estilos inline por clases CSS limpias.
+3. **Revisión 3 (Equipo Completo — Criterios de Compatibilidad y Escalamiento Humano):**
+   Acordamos entre los cuatro acotar qué significa en la práctica "candidato compatible con la zona y el horario" ($q$): definimos un radio de geocercanía inicial de $\le 5\text{ km}$ respecto del predio y una ventana horaria con margen de llegada de $\pm 15\text{ minutos}$. Para alcanzar el nivel *Supera / Propone*, diseñamos protocolos de intervención humana concretos para ambos flujos: ampliación de radar a $10\text{ km}$ + código QR de invitación externa en R1, y notificación espejo al subcapitán + aviso al WhatsApp del complejo deportivo cuando restan $\le 45\text{ minutos}$ en R2.
 
 ---
 
-## 4. Análisis y Desglose de las Sentencias Asignadas
+## 3. Sobre la Startup Matchdeverdad y la Articulación IFTS 16 – IFTS 29
 
-### 4.1. FRASE 1 · REGLA R1 (Candidatos Compatibles)
-> **Sentencia Original:** *«Si faltan jugadores y hay candidatos compatibles con la zona y el horario, el sistema propone esos candidatos al organizador.»*
+### Contexto Académico Interinstitucional
+Las reglas de negocio de **Matchdeverdad** fueron modeladas originalmente en lenguaje de lógica proposicional por estudiantes del **IFTS 16** dentro de la asignatura *Lógica Computacional*.
 
-* **Datos de Entrada:**
-  - Recuento de jugadores confirmados ($n < 10$).
-  - Ubicación de la cancha (coordenadas GPS del predio).
-  - Horario pactado de inicio del turno.
-  - Registro de jugadores activos con radio de desplazamiento compatible (&le; 5 km) y disponibilidad horaria coincidente.
-* **Condición Lógica:**
-  $$\text{FaltanJugadores} \land \text{HayCandidatosCompatibles}$$
-* **Acción Agéntica Propuesta:**
-  El agente *MatchFinder* filtra el padrón de la zona, rankea a los postulantes según su índice de puntualidad y reputación de juego limpio, y despliega en la interfaz del organizador un carrusel de recomendaciones con fichas individuales y botón de invitación directa en 1 clic.
-* **Resultado:** El organizador dispone de sustitutos inmediatos sin recurrir a grupos informales externos.
-* **Caso Límite & Intervención Humana (Nivel Propone):**
-  * *Escenario:* El organizador descarta a todos los candidatos sugeridos o los perfiles cercanos presentan antecedentes de ausentismo.
-  * *Resolución:* El sistema abre la opción de extender el radio a 10 km y habilita al organizador a emitir un enlace de pase libre temporal para amigos externos fuera de la plataforma.
+En este Trabajo Práctico Nº 3 de *Desarrollo de Sistemas Web / Front End* en el **IFTS 29**, nuestro equipo (**Grupo 21**) tomó esas fórmulas proposicionales como especificación formal de entrada para diseñar dos flujos de decisión agénticos, construir sus diagramas interactivos y plasmarlos en una aplicación web funcional donde cualquier usuario puede experimentar cómo responde el sistema ante cada combinación de variables.
+
+### Problemática que Resuelve
+En el fútbol 5 amateur, el problema clásico no es reservar la cancha, sino **sostener los 10 jugadores confirmados** hasta la hora del partido. Una baja imprevista a las 18:30 para un turno de las 20:00 suele desencadenar cadenas caóticas de mensajes en grupos de WhatsApp, incertidumbre sobre si se llega a armar el partido y el riesgo constante de perder la seña económica dejada en el predio.
+
+**Matchdeverdad** actúa como un copiloto táctico para el organizador (capitán):
+- Monitorea en vivo el quórum de la planilla ($n / 10$).
+- Cruza las vacantes con un radar comunitario de jugadores libres cercanos ($\le 5\text{ km}$) que coinciden en franja horaria y posición.
+- Propone candidatos listos para invitar con un clic, y si el reloj entra en zona crítica ($< 3\text{ horas}$) sin postulantes cercanos, alerta de inmediato al capitán con alternativas reales de contingencia, **protegiendo siempre la reserva de la cancha**.
 
 ---
 
-### 4.2. FRASE 2 · REGLA R2 (Urgencia &lt; 3 horas sin Candidatos)
-> **Sentencia Original:** *«Si faltan jugadores, quedan menos de tres horas y no hay candidatos compatibles, el sistema alerta al organizador sin cancelar el partido automáticamente.»*
+## 4. Formalización en Lógica Proposicional y Auditoría de Estados
 
-* **Datos de Entrada:**
-  - Recuento de jugadores confirmados ($n < 10$).
-  - Reloj del servidor: `TiempoRestante < 180 min` (menos de tres horas).
-  - Consulta de candidatos compatibles arrojando resultado vacío ($0$ postulantes en la zona).
-* **Condición Lógica Compuesta:**
-  $$\text{FaltanJugadores} \land (\text{TiempoRestante} < 3\text{h}) \land \neg\text{HayCandidatosCompatibles}$$
-* **Acción Agéntica Propuesta:**
-  El agente *MatchGuard Urgency* emite una alerta crítica de alta visibilidad al dispositivo móvil del organizador. Le presenta opciones tácticas predefinidas: *"Jugar en formato reducido (4 vs 4)"*, *"Compartir costo de alquiler entre los confirmados"* o *"Solicitar comodín al encargado del predio"*. **Bajo ninguna circunstancia cancela la reserva de forma unilateral.**
-* **Resultado:** El organizador toma conocimiento urgente del estado y decide el camino a seguir sin perder la seña de la cancha.
-* **Caso Límite & Intervención Humana (Nivel Propone):**
-  * *Escenario:* Quedan 45 minutos para el partido y el organizador no leyó la alerta (sin batería o en viaje).
-  * *Resolución:* El sistema eleva una notificación espejo al segundo jugador confirmado (subcapitán) y genera un mensaje de cortesía al WhatsApp del complejo deportivo para que el encargado consulte a los jugadores al momento de ingresar a las instalaciones.
+Para garantizar una trazabilidad exacta entre el modelo de *Lógica Computacional* (IFTS 16) y nuestra interfaz en *Front End* (IFTS 29), formalizamos las dos sentencias del bloque **Candidatos y urgencia (Sorteo S07-A)** mediante seis proposiciones atómicas.
 
----
+### 4.1. Diccionario de Proposiciones Atómicas (Variables Lógicas)
 
-## 5. Tecnologías Utilizadas
-
-- **HTML5 Semántico:** Estructuración con `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<details>`, `<summary>` y `<footer>`, respetando los roles de accesibilidad ARIA y enlaces de salto (*skip-link*).
-- **CSS3 Moderno:** Variables nativas (Custom Properties), layout en CSS Grid y Flexbox, estética nocturna deportiva (*Tactical Pitch*), estados `:focus-visible` para accesibilidad por teclado y diseño adaptable sin desbordes horizontales en desktop.
-- **JavaScript Modular (ES6):** Controlador reactivo para la Pizarra Táctica del Capitán, con camisetas interactivas clickeables, selector de reloj digital de cuenta regresiva, conmutador de radar barrial y previsualización de candidatos en tiempo real.
-- **Pizarra Táctica de Flujos en Alto Contraste:** Representación gráfica clara y legible de 4 etapas modulares por cada regla (Evento &rarr; Radar &rarr; Condición &rarr; Acción Agéntica Final) con diferenciación cromática amigable.
-- **Vite 6:** Empaquetador ultrarrápido y servidor de previsualización para asegurar una compilación limpia y sin dependencias superfluas.
+| Símbolo | Tipo | Definición Proposicional Formal | Criterio Operativo en el Sistema / Simulador | Negación ($\neg$) |
+| :---: | :---: | :--- | :--- | :--- |
+| **$p$** | Entrada (Premisa) | *"Faltan jugadores para completar el partido."* | Recuento de confirmados $n < 10$ (existen entre 1 y 10 vacantes en cancha). | **$\neg p$**: Quórum completo ($n = 10$ jugadores confirmados). |
+| **$q$** | Entrada (Premisa) | *"Hay candidatos compatibles con la zona y el horario."* | Padrón activo arroja $\ge 1$ jugador libre en radio $\le 5\text{ km}$ y margen $\pm 15\text{ min}$. | **$\neg q$**: Radar vacío ($0$ candidatos compatibles en zona y horario). |
+| **$r$** | Entrada (Premisa) | *"Quedan menos de tres horas para el inicio del partido."* | Reloj regresivo estricto $t_{\text{restante}} < 180\text{ min}$ (botones `2 Horas` o `30 Minutos`). | **$\neg r$**: Margen holgado o límite exacto ($t_{\text{restante}} \ge 180\text{ min}$, botones `4 Horas` y caso borde `3 Horas Exactas`). |
+| **$s$** | Salida (Acción R1) | *"El sistema propone esos candidatos al organizador."* | El agente *MatchFinder* despliega fichas de postulantes con invitación en 1 clic. | **$\neg s$**: No se despliegan sugerencias de candidatos. |
+| **$t$** | Salida (Acción R2) | *"El sistema alerta al organizador."* | El agente *MatchGuard Urgency* dispara alerta prioritaria con opciones tácticas. | **$\neg t$**: No se emite alerta de urgencia por escasez. |
+| **$u$** | Salida (Restricción) | *"El sistema cancela el partido automáticamente."* | Acción destructiva prohibida por regla de negocio. | **$\neg u$**: **Invariante de seguridad** — el sistema **NO** cancela el partido automáticamente. |
 
 ---
 
-## 6. Instrucciones para Ejecutar el Proyecto Localmente
+### 4.2. Fórmulas Moleculares de las Reglas R1 y R2
+
+1. **Regla R1 (Frase 1 — Propuesta de Candidatos Compatibles):**
+   > *«Si faltan jugadores y hay candidatos compatibles con la zona y el horario, el sistema propone esos candidatos al organizador.»*
+   
+   $$(p \land q) \rightarrow s$$
+
+2. **Regla R2 (Frase 2 — Alerta de Urgencia sin Cancelación Automática):**
+   > *«Si faltan jugadores, quedan menos de tres horas y no hay candidatos compatibles, el sistema alerta al organizador sin cancelar el partido automáticamente.»*
+   
+   $$(p \land r \land \neg q) \rightarrow (t \land \neg u)$$
+
+### 4.3. Propiedades Lógicas Demostradas por el Equipo
+
+- **Exclusión Mutua de Antecedentes (Determinismo sin Colisiones):**
+  Los antecedentes de R1 y R2 contienen literales complementarios respecto de la proposición $q$: R1 exige $q$ verdadero, mientras que R2 exige $\neg q$ verdadero. Por el *Principio de No Contradicción* ($q \land \neg q \equiv \bot$):
+  $$((p \land q) \land (p \land r \land \neg q)) \equiv \bot$$
+  Esto demuestra formalmente que **R1 y R2 jamás pueden dispararse al mismo tiempo**, evitando condiciones de carrera o mensajes contradictorios en la interfaz del organizador.
+- **Invariante de Dominio ($\neg u$ siempre Verdadero):**
+  En la regla R2, la conjunción del consecuente $(t \land \neg u)$ obliga a que la alerta ($t = V$) vaya acompañada invariablemente por la no-cancelación ($u = F \iff \neg u = V$). En los restantes estados donde no se activa R2, el sistema tampoco cancela la reserva, por lo que $\neg u = V$ se mantiene como propiedad de seguridad global.
+- **Verdad por Vacuidad con Equipo Completo ($\neg p$):**
+  Cuando los 10 jugadores están confirmados ($p = F$), tanto $(p \land q)$ como $(p \land r \land \neg q)$ se evalúan como Falsos ($F$). En lógica clásica, una implicación material $A \rightarrow B$ con antecedente falso ($F \rightarrow B$) es siempre **Verdadera por vacuidad**, lo que valida que el agente permanezca en reposo ($\neg s \land \neg t \land \neg u$) cuando la cancha está llena.
+
+---
+
+### 4.4. Tabla de Verdad Completa de las Variables de Entrada $(p, q, r)$
+
+A continuación documentamos las $2^3 = 8$ combinaciones posibles de las proposiciones de entrada $(p, q, r)$ y su correspondencia exacta con los estados del simulador **La Pizarra del Capitán**:
+
+| Fila | $p$ (Faltan $<10$) | $q$ (Hay candidatos) | $r$ (Tiempo $<3\text{h}$) | $\neg q$ | Antecedente R1: $(p \land q)$ | Antecedente R2: $(p \land r \land \neg q)$ | Consecuente Activo ($s$ / $t \land \neg u$) | Estado Operativo en el Simulador y la Interfaz |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **1** | **V** | **V** | **V** | F | **V** | F | **$s = V$** ($\neg t, \neg u$) | **Caso Borde R1 en Ventana $<3\text{h}$:** Faltan jugadores y queda poco tiempo (`2h` o `30m`), pero hay candidatos en zona. **Prevalece R1**: se propone refuerzo inmediato sin alerta de escasez. |
+| **2** | **V** | **V** | **F** | F | **V** | F | **$s = V$** ($\neg t, \neg u$) | **Regla R1 Estándar (Margen Holgado):** Faltan jugadores a `4h` del turno y el radar detecta postulantes en $\le 5\text{ km}$. El agente *MatchFinder* propone candidatos con invitación en 1 clic. |
+| **3** | **V** | **F** | **V** | **V** | F | **V** | **$t = V \land \neg u = V$** ($\neg s$) | **Regla R2 Activa (Urgencia Crítica):** Faltan jugadores, restan `< 3h` (`2h` o `30m`) y no hay candidatos ($\neg q$). Dispara **Alerta Prioritaria**, opciones 4 vs 4 / escalamiento a los 30m y **NO cancela ($\neg u$)**. |
+| **4** | **V** | **F** | **F** | **V** | F | F | $\neg s \land \neg t \land \neg u$ | **Caso Borde de Espera / Monitoreo Pasivo:** Faltan jugadores y no hay candidatos en $5\text{ km}$, pero faltan $\ge 3\text{h}$ (`4h`). No se alarma por urgencia; ofrece ampliar radar a $10\text{ km}$ o link QR externo. |
+| **5** | **F** | **V** | **V** | F | F | F | $\neg s \land \neg t \land \neg u$ | **Quórum Completo (`10/10` Confirmados):** Aunque haya postulantes libres y falten $<3\text{h}$, al ser $p = F$ ambas reglas quedan satisfechas por vacuidad. Equipo listo para jugar. |
+| **6** | **F** | **V** | **F** | F | F | F | $\neg s \land \neg t \land \neg u$ | **Quórum Completo (`10/10` Confirmados):** Planilla llena con margen de `4h` y radar con candidatos. Sistema en reposo operativo ($\neg p$). |
+| **7** | **F** | **F** | **V** | **V** | F | F | $\neg s \land \neg t \land \neg u$ | **Quórum Completo (`10/10` Confirmados):** Planilla llena a $<3\text{h}$ sin candidatos externos. No se requiere ningún reemplazo ni alerta ($\neg p$). |
+| **8** | **F** | **F** | **F** | **V** | F | F | $\neg s \land \neg t \land \neg u$ | **Quórum Completo (`10/10` Confirmados):** Planilla llena a `4h` del partido. Estado ideal de partido confirmado sin intervención agéntica. |
+
+---
+
+## 5. Desglose Detallado de las Dos Propuestas Agénticas y Casos Límite
+
+### 5.1. Propuesta 1 — FRASE 1 · REGLA R1 (*MatchFinder Agent*)
+> **Sentencia Oficial:** *«Si faltan jugadores y hay candidatos compatibles con la zona y el horario, el sistema propone esos candidatos al organizador.»* — **Fórmula:** $(p \land q) \rightarrow s$
+
+- **Datos de Entrada:**
+  - Planilla del partido con $n < 10$ jugadores confirmados ($p = V$).
+  - Coordenadas del complejo deportivo (*La Cantera F5*) y radio de búsqueda estándar ($\le 5\text{ km}$).
+  - Horario de inicio del turno (`20:00 hs`) con margen de tolerancia de llegada de $\pm 15\text{ minutos}$.
+  - Padrón de jugadores comunitarios disponibles en esa franja horaria ($q = V$).
+- **Acción Agéntica ($s$):**
+  El agente *MatchFinder* filtra los postulantes que cumplen la doble cota (geocercanía + horario), los ordena por puntaje de asistencia/juego limpio y presenta sus fichas al capitán para que pueda invitarlos con un clic. **El agente sugiere pero no invita a espaldas del organizador.**
+- **Auditoría de Casos Límite e Intervención Humana (Nivel Supera / Propone):**
+  1. *Caso Borde A — Rechazo de candidatos o falta de perfiles con buena reputación en 5 km:* Si el capitán descarta a los candidatos sugeridos o el radar en $5\text{ km}$ queda vacío cuando aún faltan más de 3 horas ($p \land \neg q \land \neg r$), el agente habilita el protocolo de intervención humana: permite activar la **"Zona Extendida" (ampliando el radio de 5 km a 10 km)** y genera un **enlace temporal con código QR** para compartir la vacante en grupos externos de confianza.
+  2. *Caso Borde B — Vacante de último momento con candidatos disponibles ($p \land q \land r$):* Si se baja un jugador faltando 2 horas o 30 minutos pero el radar sí tiene candidatos compatibles ($q = V$), prevalece R1 sobre R2 y se destaca la etiqueta de **"Incorporación Inmediata"** para cubrir el puesto sin entrar en pánico.
+
+---
+
+### 5.2. Propuesta 2 — FRASE 2 · REGLA R2 (*MatchGuard Urgency Agent*)
+> **Sentencia Oficial:** *«Si faltan jugadores, quedan menos de tres horas y no hay candidatos compatibles, el sistema alerta al organizador sin cancelar el partido automáticamente.»* — **Fórmula:** $(p \land r \land \neg q) \rightarrow (t \land \neg u)$
+
+- **Datos de Entrada:**
+  - Planilla incompleta con $n < 10$ jugadores confirmados ($p = V$).
+  - Cuenta regresiva del servidor en ventana crítica: $t_{\text{restante}} < 180\text{ minutos}$ ($r = V$).
+  - Consulta al radar barrial ($\le 5\text{ km}$) con resultado de $0$ postulantes compatibles ($\neg q = V$).
+- **Acción Agéntica Compuesta ($t \land \neg u$):**
+  - **$t$ (Alerta Prioritaria):** El agente *MatchGuard Urgency* envía una notificación crítica al dispositivo del organizador con tres vías tácticas de resolución inmediata: *(1) Confirmar formato reducido 4 vs 4*, *(2) Prorratear el costo de la cancha entre los presentes*, o *(3) Solicitar jugador comodín a la recepción del predio*.
+  - **$\neg u$ (Prohibición de Cancelación Automática):** El sistema mantiene blindada la reserva de la cancha, evitando la pérdida económica de la seña abonada.
+- **Auditoría de Casos Límite e Intervención Humana (Nivel Supera / Propone):**
+  - *Caso Borde Crítico — Silencio del organizador a $\le 45\text{ minutos}$ del inicio (`30 Minutos` en el simulador):* Si el partido está a punto de empezar y el capitán no acusó recibo de la alerta (por ejemplo, porque está viajando hacia la cancha o se quedó sin batería), el sistema ejecuta un **Escalamiento Humano en Dos Niveles** sin cancelar el turno:
+    1. Dispara una **notificación espejo al Subcapitán** (el segundo jugador confirmado más antiguo de la lista) para que pueda tomar la decisión táctica.
+    2. Envía un **aviso preventivo de cortesía al WhatsApp de la recepción del predio** (*La Cantera F5*) informando el quórum actual para que el encargado asista al grupo al llegar a la cancha.
+
+---
+
+## 6. Tecnologías y Arquitectura del Proyecto
+
+- **HTML5 Semántico y Accesible:** Uso estructurado de `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<details>`, `<summary>` y `<footer>`, enlace de salto al contenido principal (`.skip-link`), atributos ARIA dinámicos (`aria-expanded`, `aria-label`, `role="button"`) y navegación íntegra por teclado (`Tab`, `Enter`, `Espacio`).
+- **CSS3 Moderno (Custom Properties + Grid/Flexbox):** Diseño temático *"Cancha Sintética Nocturna"* con franjas de césped alternadas, líneas de cal, navbar fluida de una sola línea (`white-space: nowrap`), árboles de decisión en HTML/CSS inmunes a recortes de texto y tarjetas de alerta de alto contraste.
+- **JavaScript Modular (ES6 — `src/main.js`):**
+  - Función pura verificable `evaluateRules({ confirmed, minutesLeft, hasCandidates })` que evalúa en forma determinista las proposiciones $p, q, r$, los antecedentes $(p \land q)$ y $(p \land r \land \neg q)$, y los consecuentes $s, t, u$ (con $u = \text{false}$ invariante).
+  - Controlador interactivo de los dos diagramas de flujo (*Ver Flujo Completo*, *Camino SÍ*, *Camino NO*) con estado accesible `aria-pressed`.
+  - Motor reactivo de **La Pizarra del Capitán**: 10 camisetas clickeables para simular bajas o confirmaciones en tiempo real, selector de 4 ventanas temporales (`4h`, `3h exactas` como caso borde de desigualdad estricta $r = F$, `2h` y `30m`), interruptor del radar barrial ($\le 5\text{ km}$), visualización de la fórmula proposicional evaluada en vivo (`#agent-logic-formula`) y botón funcional para invitar e incorporar candidatos recomendados directamente a la cancha.
+- **Vite 6:** Empaquetador de desarrollo y construcción optimizada para producción (`dist/`).
+
+---
+
+## 7. Instrucciones para Ejecutar el Proyecto Localmente
 
 ### Requisitos Previos
-Tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior) y `npm`.
+Contar con [Node.js](https://nodejs.org/) (versión 18 o superior) y `npm` instalados.
 
 ### Paso a Paso
-1. **Clonar o ingresar a la carpeta del proyecto:**
+1. **Clonar el repositorio o posicionarse en la carpeta del proyecto:**
    ```powershell
+   git clone https://github.com/GuiLeCha/TP3-Matchdeverdad-Grupo21.git
    cd "TP3-Matchdeverdad-Grupo21"
    ```
 
-2. **Instalar dependencias:**
+2. **Instalar las dependencias:**
    ```powershell
    npm install
    ```
 
-3. **Iniciar servidor de desarrollo local:**
+3. **Levantar el servidor de desarrollo local:**
    ```powershell
    npm run dev
    ```
-   Abrir en el navegador la dirección local indicada (`http://localhost:3000`).
+   Abrir en el navegador la URL indicada en consola (por defecto `http://localhost:5173` o `http://localhost:3000`).
 
-4. **Compilar para producción:**
+4. **Generar la compilación para producción:**
    ```powershell
    npm run build
    ```
-   Genera el bundle optimizado en la carpeta `dist/` (0 errores de compilación).
+   Verifica que el proyecto compile con `0 errores` generando los archivos estáticos optimizados en `dist/`.
 
-5. **Previsualizar la compilación de producción:**
+5. **Previsualizar el build de producción localmente:**
    ```powershell
    npm run preview
    ```
 
 ---
 
-## 7. Herramientas de IA y Construcción Agéntica
+## 8. Herramientas de IA y Evidencia de Construcción Agéntica
 
-En estricto cumplimiento de la consigna de *“Construcción 100% Agéntica: Ustedes dirigen, el agente construye”*:
+Siguiendo la modalidad pedagógica del TP3 (*"Construcción 100% Agéntica: ustedes dirigen, el agente construye"*), documentamos las herramientas empleadas y el proceso real de dirección e iteración del Grupo 21:
 
-- **Entorno de Trabajo / Aplicación:** Google Antigravity (AGY IDE).
-- **Modelo de Lenguaje Seleccionado:** `Gemini 3.8 Flash (High)` (declarado e informado por el entorno).
-- **Usos de la IA:**
-  - Análisis proposicional y descomposición de las sentencias R1 y R2 de Matchdeverdad.
-  - Generación de la maquetación semántica en HTML5 y CSS3 responsive.
-  - Modelado de las Pizarras Tácticas de Flujo de alto contraste.
-  - Implementación del script interactivo para la Pizarra del Capitán (camisetas clickeables y reloj LED).
-  - Auditoría de accesibilidad y verificación de compilación en Vite.
+- **Entorno de Desarrollo Agéntico:** Google Antigravity (AGY IDE).
+- **Modelos Utilizados en la Orquestación:** `Gemini 3.8 Flash (High)`, `Gemini 4 Argon (High)` (auditoría de lógica proposicional y documentación académica) y `Claude Sonnet 5.5 (High)` (refinamiento visual UI/UX y simulador interactivo).
+- **Funciones Delegadas bajo Dirección del Grupo:**
+  - Traducción de las fórmulas proposicionales de Matchdeverdad ($(p \land q) \rightarrow s$ y $(p \land r \land \neg q) \rightarrow (t \land \neg u)$) a componentes visuales y tablas de verdad.
+  - Maquetación semántica en HTML5 y hojas de estilo CSS3 con estética deportiva nocturna.
+  - Programación de los árboles de flujo interactivos y del simulador táctico de 10 camisetas en `src/main.js`.
+  - Pruebas de compilación con Vite y verificación de accesibilidad.
 
-### Evidencia de Iteración (Rúbrica - Nivel Propone)
-- **Instrucción inicial del grupo:**
-  > *"Generá una landing page para la startup Matchdeverdad con la Frase 1 y Frase 2, mostrando un diagrama de qué pasa cuando faltan jugadores."*
-- **Problema detectado por el grupo:**
-  En la respuesta preliminar, el agente generó una estructura genérica con un formulario básico de sliders, diagramas oscuros de bajo contraste donde los textos quedaban apretados en dos líneas con colores poco amigables, una tabla de rúbrica en medio del sitio y un flujo erróneo que cancelaba el partido automáticamente en R2.
-- **Pedido de mejora y reprompting formulado al agente:**
-  > *"Correcciones obligatorias de diseño y lógica: 1) Eliminar la tabla de rúbrica de la landing (debe quedar en el README para la corrección académica, no en la web del producto). 2) Rediseñar por completo los diagramas: usar Pizarras Tácticas de alto contraste, tipografía amplia, colores amigables y tarjetas de acción con espacio generoso. 3) Reimaginar el simulador: transformarlo en 'La Pizarra del Capitán', con una cancha de fútbol 5 real, 10 camisetas interactivas clickeables para dar de baja/alta jugadores, reloj LED de cuenta regresiva y ficha de candidato barrial con botón de invitar. 4) Garantizar la ambientación futbolera amateur ('La Cantera F5', camisetas con dorsales, quórum en vivo)."*
-- **Resultado final tras la iteración:**
-  El agente reconstruyó íntegramente la interfaz: la landing adoptó la estética de cancha nocturna con tipografía deportiva *Barlow Condensed*; los diagramas pasaron a ser Pizarras Tácticas modulares en alto contraste; el simulador interactivo permite clickear sobre las camisetas para cambiar el quórum en vivo; y la regla R2 cuenta con el escudo de no-cancelación automática destacado.
+### Registro de Iteración y Reprompting del Equipo (Nivel Supera / Propone)
 
----
-
-## 8. Enlaces del Proyecto
-
-- **Repositorio de GitHub:** [https://github.com/GuiLeCha/TP3-Matchdeverdad-Grupo21](https://github.com/GuiLeCha/TP3-Matchdeverdad-Grupo21)
-- **Landing Page Publicada en Vercel:** [https://tp3-matchdeverdad-grupo21.vercel.app/](https://tp3-matchdeverdad-grupo21.vercel.app/)
-
-*(Los enlaces son públicos y accesibles desde cualquier navegador sin requerir inicio de sesión).*
+1. **Prompt / Instrucción Inicial del Grupo:**
+   > *"Necesitamos armar la landing page para la startup Matchdeverdad (Sorteo S07-A, bloque Candidatos y urgencia) con las dos sentencias asignadas, sus diagramas de flujo y una sección para probar cómo funciona."*
+2. **Problemas Detectados por el Grupo en la Primera Respuesta del Agente:**
+   - En la regla R2, el borrador inicial sugería cancelar automáticamente el partido cuando no había candidatos a menos de 3 horas, contradiciendo la consigna y haciendo perder la seña de la cancha.
+   - Los primeros diagramas en SVG tenían textos largos que se cortaban en pantallas medianas y poca diferenciación visual entre las ramas SÍ y NO.
+   - En el simulador, al dejar activo el radar de candidatos, cambiar el tiempo entre 4 horas, 2 horas y 30 minutos no actualizaba la explicación lógica, y un estilo inline (`beacon.style.background`) dejaba trabado el color del indicador luminoso tras pasar por el estado de búsqueda pasiva.
+   - Faltaba explicitar la tabla de verdad formal de 8 filas que vincula el trabajo del IFTS 16 con nuestro desarrollo en el IFTS 29.
+3. **Directiva de Corrección y Reprompting Aplicada por el Grupo 21:**
+   > *"Aplicar estas correcciones obligatorias: 1) En R2 jamás se cancela el partido automáticamente (invariante ¬u); destacar un banner de Reserva de Cancha Protegida y sumar el protocolo de escalamiento al subcapitán y al WhatsApp del predio cuando quedan 30-45 minutos. 2) Reemplazar los SVG rígidos por árboles de flujo interactivos en HTML/CSS con pestañas para filtrar el flujo completo, el Camino SÍ y el Camino NO. 3) En el simulador ('La Pizarra del Capitán'), mostrar en vivo la evaluación de las proposiciones (p, q, r), corregir el bug del estilo inline del beacon, diferenciar el caso borde donde faltan < 3h pero SÍ hay candidatos (prevalece R1 con incorporación inmediata) y hacer que el botón 'Invitar con 1 Clic' sume realmente al refuerzo en una camiseta vacante. 4) Documentar en el README la formalización proposicional completa y la tabla de verdad de 8 estados."*
+4. **Resultado Validado:**
+   La aplicación resultante refleja fielmente la tabla de verdad en sus 8 combinaciones posibles, ofrece diagramas interactivos 100% legibles, permite completar el quórum en vivo invitando candidatos a la cancha y preserva el invariante de no-cancelación en todos los escenarios de urgencia.
 
 ---
 
-## 9. Comprobación y Checklist de Criterios (Rúbrica Oficial)
+## 9. Enlaces Públicos del Proyecto
 
-| Ítem Rúbrica | Criterio | Nivel | Comprobación y Evidencia |
+- **Repositorio Público en GitHub:** [https://github.com/GuiLeCha/TP3-Matchdeverdad-Grupo21](https://github.com/GuiLeCha/TP3-Matchdeverdad-Grupo21)
+- **Landing Page Desplegada en Vercel:** [https://tp3-matchdeverdad-grupo21.vercel.app/](https://tp3-matchdeverdad-grupo21.vercel.app/)
+
+*(Ambos enlaces son públicos y de acceso directo desde cualquier navegador sin necesidad de iniciar sesión).*
+
+---
+
+## 10. Autoevaluación y Matriz de Cumplimiento (Rúbrica Oficial — Nivel Supera / Propone)
+
+| Ítem | Criterio de la Rúbrica Oficial | Nivel Alcanzado | Evidencia Concreta en el Proyecto y en este README |
 | :---: | :--- | :---: | :--- |
-| **01** | **Participación de los integrantes** | **PROPONE** | 4 integrantes documentados con roles y aportes individuales. Registro explícito de la revisión colaborativa entre integrantes y la mejora en la regla R2. |
-| **02** | **Repositorio y landing publicados** | **PROPONE** | Enlaces públicos y funcionales sin sesión. Guía paso a paso para reproducción local y verificación exhaustiva de enlaces. |
-| **03** | **Landing acorde a la consigna** | **PROPONE** | Logo oficial de Matchdeverdad en WebP, bloque S07-A, sentencias textuales, desplegables `<details>` y Pizarra Táctica interactiva con 10 camisetas clickeables. |
-| **04** | **Dos flujos agénticos gráficos** | **PROPONE** | Dos Pizarras Tácticas en alto contraste, legibles y nítidas (R1 y R2). Explicación exhaustiva de casos límite y resolución mediante intervención humana. |
-| **05** | **Herramientas de IA y modelos** | **PROPONE** | Declaración de Google Antigravity y modelo Gemini 3.8 Flash. Evidencia completa de iteración con prompt inicial, error detectado, corrección y resultado. |
+| **01** | **Participación de los integrantes** | **SUPERA / PROPONE** | Los 4 integrantes del Grupo 21 (Guzmán, Andrada, Belinzoni, Chacon) están identificados con sus roles, perfiles y aportes específicos, incluyendo 3 revisiones colaborativas documentadas sobre la lógica y la UI generadas por el agente. |
+| **02** | **Repositorio y landing publicados** | **SUPERA / PROPONE** | Repositorio en GitHub y despliegue en Vercel públicos y operativos sin login, acompañados de guía paso a paso verificada para clonar, instalar, correr en desarrollo y compilar (`npm run build`) localmente. |
+| **03** | **Landing acorde a la consigna** | **SUPERA / PROPONE** | Identidad visual propia de cancha de fútbol 5 nocturna, logo oficial `S07.webp` con descarga, explicación del origen en IFTS 16, sentencias textuales y formalizadas, desplegables `<details>` accesibles por teclado y simulador interactivo *La Pizarra del Capitán*. |
+| **04** | **Dos flujos agénticos gráficos** | **SUPERA / PROPONE** | Dos árboles de decisión interactivos en alto contraste (R1 y R2) con filtros de recorrido, tabla de verdad completa de 8 estados y resolución detallada de casos límite con protocolos de intervención humana en ambos flujos. |
+| **05** | **Herramientas de IA y modelos** | **SUPERA / PROPONE** | Declaración transparente de Google Antigravity y los modelos utilizados, junto con la trazabilidad completa de iteración (prompt inicial, errores lógicos y visuales detectados por el equipo, reprompting correctivo y resultado final). |
