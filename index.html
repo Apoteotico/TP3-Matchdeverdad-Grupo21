@@ -241,7 +241,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 03: PROPUESTA 1 (R1) + DIAGRAMA INTERACTIVO -->
+    <!-- SECCIÓN 03: PROPUESTA 1 (R1) + DIAGRAMA DE FLUJO INTERACTIVO -->
     <section id="propuesta-1" class="content-section" aria-labelledby="p1-title">
       <div class="container">
         <div class="section-header">
@@ -256,112 +256,71 @@
           <strong style="color: var(--turf-neon);">Sentencia R1:</strong> «Si faltan jugadores y hay candidatos compatibles con la zona y el horario, el sistema propone esos candidatos al organizador.»
         </div>
 
-        <!-- Panel del Diagrama Interactivo R1 -->
-        <div class="diagram-interactive-panel">
-          <div class="diagram-toolbar">
-            <div class="diagram-header-left">
-              <h3 class="diagram-title">Diagrama Interactivo · Flujo R1</h3>
-              <span class="radar-pill">SVG DINÁMICO</span>
-            </div>
-
-            <div class="diagram-controls-row">
-              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Simular Recorrido:</span>
-              <button type="button" id="r1-mode-standard" class="flow-mode-btn active">Camino Estándar (Éxito)</button>
-              <button type="button" id="r1-mode-edge" class="flow-mode-btn">Caso Límite (Extensión 10 km)</button>
-              <button type="button" id="r1-step-prev" class="flow-mode-btn" title="Paso anterior">&larr;</button>
-              <button type="button" id="r1-step-next" class="flow-mode-btn" title="Paso siguiente">&rarr;</button>
+        <!-- Diagrama de Flujo Visual e Interactivo (HTML/CSS) -->
+        <div class="visual-flow-container" id="flow-1">
+          <div class="flow-interactive-bar">
+            <h3 class="flow-title">Diagrama de Flujo · Regla R1</h3>
+            <div class="flow-mode-tabs">
+              <button type="button" class="flow-tab-btn active" data-mode="all">Ver Flujo Completo</button>
+              <button type="button" class="flow-tab-btn" data-mode="yes">Camino SÍ · Propuesta Exitosa</button>
+              <button type="button" class="flow-tab-btn" data-mode="no">Camino NO · Caso Límite</button>
             </div>
           </div>
 
-          <div class="diagram-workspace">
-            <!-- Diagrama SVG Vectorial R1 -->
-            <div class="svg-diagram-wrapper">
-              <svg id="svg-diagram-r1" class="flow-interactive-svg" viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#22c55e" />
-                  </marker>
-                  <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
-                  </marker>
-                  <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#475569" />
-                  </marker>
-                </defs>
-
-                <!-- Conexiones / Flechas R1 -->
-                <path class="flow-path r1-path-standard" d="M 340 70 L 340 110" stroke="#475569" stroke-width="2" marker-end="url(#arrow-green)"/>
-                <path class="flow-path r1-path-standard" d="M 340 190 L 340 230" stroke="#475569" stroke-width="2" marker-end="url(#arrow-green)"/>
-                <path class="flow-path r1-path-standard" d="M 340 320 L 340 370" stroke="#475569" stroke-width="2" marker-end="url(#arrow-green)"/>
-                <!-- Rama alternativa / Caso Límite -->
-                <path class="flow-path r1-path-edge" d="M 425 275 L 540 275 L 540 370" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow-amber)"/>
-
-                <!-- NODO 1: Inicio -->
-                <g id="r1-n1" class="flow-node">
-                  <rect x="230" y="20" width="220" height="50" rx="25" fill="#0b172c" stroke="#22c55e" stroke-width="2"/>
-                  <text x="340" y="44" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" text-anchor="middle">EVENTO: Quórum de Cancha</text>
-                  <text x="340" y="58" fill="#94a3b8" font-size="10" text-anchor="middle">Inicio del monitoreo de convocatoria</text>
-                </g>
-
-                <!-- NODO 2: Decisión 1 (Rombo) -->
-                <g id="r1-n2" class="flow-node">
-                  <polygon points="340,110 425,150 340,190 255,150" fill="#0e2242" stroke="#38bdf8" stroke-width="2"/>
-                  <text x="340" y="146" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Faltan jugadores?</text>
-                  <text x="340" y="160" fill="#a7f3d0" font-size="10" text-anchor="middle">Confirmados &lt; 10</text>
-                </g>
-                <text x="350" y="215" fill="#22c55e" font-weight="800" font-size="11">SÍ</text>
-
-                <!-- NODO 3: Decisión 2 (Rombo) -->
-                <g id="r1-n3" class="flow-node">
-                  <polygon points="340,230 425,275 340,320 255,275" fill="#0e2242" stroke="#38bdf8" stroke-width="2"/>
-                  <text x="340" y="270" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Candidatos compatibles?</text>
-                  <text x="340" y="284" fill="#a7f3d0" font-size="10" text-anchor="middle">Radio &le; 5 km y horario</text>
-                </g>
-                <text x="350" y="350" fill="#22c55e" font-weight="800" font-size="11">SÍ</text>
-                <text x="450" y="265" fill="#f59e0b" font-weight="800" font-size="11">NO / DESCARTE</text>
-
-                <!-- NODO 4: Acción Agéntica Final R1 -->
-                <g id="r1-n4" class="flow-node">
-                  <rect x="200" y="370" width="280" height="80" rx="12" fill="#064e3b" stroke="#22c55e" stroke-width="2.5"/>
-                  <text x="340" y="398" fill="#a7f3d0" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="15" text-anchor="middle" letter-spacing="0.5">ACCIÓN AGÉNTICA (R1)</text>
-                  <text x="340" y="418" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" text-anchor="middle">Propone candidatos al organizador</text>
-                  <text x="340" y="434" fill="#6ee7b7" font-size="10" text-anchor="middle">Invitación directa por WhatsApp con 1 clic</text>
-                </g>
-
-                <!-- NODO 5: Caso Límite / Intervención Humana -->
-                <g id="r1-n5" class="flow-node">
-                  <rect x="440" y="370" width="200" height="80" rx="12" fill="#291b05" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 3"/>
-                  <text x="540" y="398" fill="#fbbf24" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="14" text-anchor="middle">CASO LÍMITE (PROPONE)</text>
-                  <text x="540" y="416" fill="#ffffff" font-size="11" text-anchor="middle">Ampliar radar a 10 km</text>
-                  <text x="540" y="432" fill="#cbd5e1" font-size="9.5" text-anchor="middle">o generar link temporal externo</text>
-                </g>
-              </svg>
+          <div class="flow-tree" data-view="all">
+            <!-- Nodo 1: Inicio -->
+            <div class="v-node">
+              <span class="v-node-step">Paso 01 · Inicio del Evento</span>
+              <div class="v-node-title">Quórum Abierto en Cancha</div>
+              <div class="v-node-desc">Monitoreo continuo de la planilla de jugadores confirmados.</div>
             </div>
 
-            <!-- Ficha Táctica Lateral (Inspector) -->
-            <aside class="diagram-inspector-card" aria-label="Ficha técnica del paso seleccionado">
-              <span id="r1-inspector-tag" class="inspector-tag">Paso 04 · Acción Agéntica R1</span>
-              <h4 id="r1-inspector-title" class="inspector-node-title">Proponer Candidatos al Organizador</h4>
+            <div class="v-stem"></div>
 
-              <div class="inspector-field">
-                <label>Datos de Entrada:</label>
-                <p id="r1-inspector-inputs">Top 3 postulantes compatibles seleccionados por el algoritmo de radar.</p>
+            <!-- Nodo 2: Decisión 1 -->
+            <div class="v-decision">
+              <span class="v-node-step">Evaluación 01 · Condición</span>
+              <div class="v-node-title">¿Faltan Jugadores en el Turno?</div>
+              <div class="v-node-desc">Comprueba si Confirmados &lt; 10.</div>
+            </div>
+
+            <div class="v-stem"></div>
+
+            <!-- Nodo 3: Decisión 2 -->
+            <div class="v-decision">
+              <span class="v-node-step">Evaluación 02 · Radar Barrial</span>
+              <div class="v-node-title">¿Hay Candidatos Compatibles en Zona y Horario?</div>
+              <div class="v-node-desc">Radio &le; 5 km del predio deportivo con franja horaria coincidente.</div>
+            </div>
+
+            <div class="v-fork">
+              <div class="v-fork-bar"></div>
+            </div>
+
+            <!-- Bifurcación SÍ vs NO -->
+            <div class="v-branches-row">
+              <!-- Rama SÍ -->
+              <div class="v-branch branch-yes">
+                <span class="v-branch-tag tag-yes">SÍ · Cumple la Regla R1</span>
+                <div class="v-action-card">
+                  <div class="card-title">Acción Agéntica R1</div>
+                  <div class="card-body">
+                    El sistema clasifica a los postulantes por índice de puntualidad y reputación de juego limpio, y despliega tarjetas de recomendación directa en el dispositivo del organizador con botón de invitación en 1 clic.
+                  </div>
+                </div>
               </div>
 
-              <div class="inspector-field">
-                <label>Evaluación Lógica:</label>
-                <p id="r1-inspector-logic">Genera tarjetas de sugerencia ordenadas por índice de puntualidad y reputación de juego limpio.</p>
+              <!-- Rama NO (Caso Límite) -->
+              <div class="v-branch branch-no">
+                <span class="v-branch-tag tag-no">NO / DESCARTE · Caso Límite</span>
+                <div class="v-action-card v-action-amber">
+                  <div class="card-title">Intervención Humana (Propone)</div>
+                  <div class="card-body">
+                    Si el capitán rechaza a los sugeridos o no hay perfiles en 5 km, el agente ofrece ampliar la búsqueda a 10 km o genera un enlace temporal con código QR para invitar conocidos por fuera de la plataforma.
+                  </div>
+                </div>
               </div>
-
-              <div class="inspector-field">
-                <label>Decisión de Diseño:</label>
-                <p id="r1-inspector-rationale">Cumple taxativamente la FRASE 1. El sistema sugiere; el capitán toma la decisión final con 1 clic.</p>
-              </div>
-
-              <div class="inspector-tip">
-                💡 <strong>Interactividad:</strong> Hacé clic en cualquier nodo o cambiá de modo arriba para ver la ficha en vivo.
-              </div>
-            </aside>
+            </div>
           </div>
         </div>
 
@@ -404,7 +363,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 04: PROPUESTA 2 (R2) + DIAGRAMA INTERACTIVO -->
+    <!-- SECCIÓN 04: PROPUESTA 2 (R2) + DIAGRAMA DE FLUJO INTERACTIVO -->
     <section id="propuesta-2" class="content-section" aria-labelledby="p2-title">
       <div class="container">
         <div class="section-header">
@@ -419,111 +378,71 @@
           <strong style="color: var(--urgency-amber);">Sentencia R2:</strong> «Si faltan jugadores, quedan menos de tres horas y no hay candidatos compatibles, el sistema alerta al organizador sin cancelar el partido automáticamente.»
         </div>
 
-        <!-- Panel del Diagrama Interactivo R2 -->
-        <div class="diagram-interactive-panel">
-          <div class="diagram-toolbar">
-            <div class="diagram-header-left">
-              <h3 class="diagram-title" style="color: var(--urgency-amber);">Diagrama Interactivo · Flujo R2</h3>
-              <span class="radar-pill" style="color: var(--urgency-amber); border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.15);">PROTOCOLO DE URGENCIA</span>
-            </div>
-
-            <div class="diagram-controls-row">
-              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Simular Recorrido:</span>
-              <button type="button" id="r2-mode-standard" class="flow-mode-btn flow-mode-btn-amber active">Alerta Prioritaria (NO Cancela)</button>
-              <button type="button" id="r2-mode-edge" class="flow-mode-btn flow-mode-btn-amber">Escalamiento a 45 min</button>
-              <button type="button" id="r2-step-prev" class="flow-mode-btn" title="Paso anterior">&larr;</button>
-              <button type="button" id="r2-step-next" class="flow-mode-btn" title="Paso siguiente">&rarr;</button>
+        <!-- Diagrama de Flujo Visual e Interactivo (HTML/CSS) R2 -->
+        <div class="visual-flow-container" id="flow-2">
+          <div class="flow-interactive-bar">
+            <h3 class="flow-title" style="color: var(--urgency-amber);">Diagrama de Flujo · Regla R2</h3>
+            <div class="flow-mode-tabs">
+              <button type="button" class="flow-tab-btn flow-tab-btn-amber active" data-mode="all">Ver Flujo Completo</button>
+              <button type="button" class="flow-tab-btn flow-tab-btn-amber" data-mode="yes">Camino SÍ · Alerta Prioritaria</button>
+              <button type="button" class="flow-tab-btn flow-tab-btn-amber" data-mode="no">Camino NO · Espera Pasiva</button>
             </div>
           </div>
 
-          <div class="diagram-workspace">
-            <!-- Diagrama SVG Vectorial R2 -->
-            <div class="svg-diagram-wrapper">
-              <svg id="svg-diagram-r2" class="flow-interactive-svg" viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg">
-                <!-- Conexiones / Flechas R2 -->
-                <path class="flow-path r2-path-standard" d="M 340 60 L 340 100" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
-                <path class="flow-path r2-path-standard" d="M 340 180 L 340 220" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
-                <path class="flow-path r2-path-standard" d="M 340 300 L 340 340" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
-                <path class="flow-path r2-path-standard" d="M 340 420 L 340 450" stroke="#475569" stroke-width="2" marker-end="url(#arrow-amber)"/>
-                <!-- Rama Caso Límite a 45 min -->
-                <path class="flow-path r2-path-edge" d="M 430 380 L 530 380 L 530 450" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow-amber)"/>
-
-                <!-- NODO 1: Inicio Cronómetro -->
-                <g id="r2-n1" class="flow-node">
-                  <rect x="220" y="15" width="240" height="45" rx="22" fill="#0b172c" stroke="#f59e0b" stroke-width="2"/>
-                  <text x="340" y="38" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">CRONÓMETRO: Cuenta Regresiva</text>
-                  <text x="340" y="50" fill="#fcd34d" font-size="9" text-anchor="middle">Monitoreo del tiempo previo al turno</text>
-                </g>
-
-                <!-- NODO 2: Decisión 1 -->
-                <g id="r2-n2" class="flow-node">
-                  <polygon points="340,100 420,140 340,180 260,140" fill="#0e2242" stroke="#f59e0b" stroke-width="2"/>
-                  <text x="340" y="136" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Faltan jugadores?</text>
-                  <text x="340" y="150" fill="#fde68a" font-size="10" text-anchor="middle">Confirmados &lt; 10</text>
-                </g>
-                <text x="350" y="205" fill="#f59e0b" font-weight="800" font-size="11">SÍ</text>
-
-                <!-- NODO 3: Decisión 2 -->
-                <g id="r2-n3" class="flow-node">
-                  <polygon points="340,220 420,260 340,300 260,260" fill="#0e2242" stroke="#f59e0b" stroke-width="2"/>
-                  <text x="340" y="254" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Tiempo &lt; 3 horas?</text>
-                  <text x="340" y="268" fill="#fde68a" font-size="10" text-anchor="middle">Ventana crítica (&lt; 180 min)</text>
-                </g>
-                <text x="350" y="325" fill="#f59e0b" font-weight="800" font-size="11">SÍ</text>
-
-                <!-- NODO 4: Decisión 3 -->
-                <g id="r2-n4" class="flow-node">
-                  <polygon points="340,340 430,380 340,420 250,380" fill="#0e2242" stroke="#f59e0b" stroke-width="2"/>
-                  <text x="340" y="374" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">¿Candidatos compatibles?</text>
-                  <text x="340" y="388" fill="#fca5a5" font-size="10" text-anchor="middle">Conjunto vacío (0 postulantes)</text>
-                </g>
-                <text x="350" y="440" fill="#f59e0b" font-weight="800" font-size="11">NO</text>
-                <text x="440" y="372" fill="#ef4444" font-weight="800" font-size="10.5">SIN RESPUESTA</text>
-
-                <!-- NODO 5: Acción R2 -->
-                <g id="r2-n5" class="flow-node">
-                  <rect x="190" y="450" width="300" height="90" rx="12" fill="#3b1702" stroke="#f59e0b" stroke-width="2.5"/>
-                  <text x="340" y="476" fill="#fde68a" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="15" text-anchor="middle">ALERTA PRIORITARIA (R2)</text>
-                  <text x="340" y="496" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" text-anchor="middle">Avisa al capitán con opciones de juego</text>
-                  <text x="340" y="514" fill="#f87171" font-weight="800" font-size="11" text-anchor="middle">🛡 ¡NO CANCELA EL PARTIDO AUTOMÁTICAMENTE!</text>
-                  <text x="340" y="528" fill="#cbd5e1" font-size="9.5" text-anchor="middle">Preserva la seña de la cancha en todo momento</text>
-                </g>
-
-                <!-- NODO 6: Caso Límite a 45 min -->
-                <g id="r2-n6" class="flow-node">
-                  <rect x="430" y="450" width="200" height="90" rx="12" fill="#240c03" stroke="#ef4444" stroke-width="2" stroke-dasharray="5 3"/>
-                  <text x="530" y="476" fill="#fca5a5" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="14" text-anchor="middle">CASO LÍMITE (45 MIN)</text>
-                  <text x="530" y="496" fill="#ffffff" font-size="10.5" text-anchor="middle">Aviso espejo a subcapitán</text>
-                  <text x="530" y="512" fill="#cbd5e1" font-size="9.5" text-anchor="middle">y mensaje a administración del predio</text>
-                  <text x="530" y="526" fill="#fde68a" font-size="9" text-anchor="middle">para coordinar al llegar</text>
-                </g>
-              </svg>
+          <div class="flow-tree" data-view="all">
+            <!-- Nodo 1: Cronómetro -->
+            <div class="v-node">
+              <span class="v-node-step" style="color: var(--urgency-amber);">Paso 01 · Control de Tiempo</span>
+              <div class="v-node-title">Cuenta Regresiva Pre-Partido</div>
+              <div class="v-node-desc">El cronómetro monitoriza los minutos restantes para el turno de la cancha.</div>
             </div>
 
-            <!-- Ficha Táctica Lateral R2 -->
-            <aside class="diagram-inspector-card" aria-label="Ficha técnica de urgencia">
-              <span id="r2-inspector-tag" class="inspector-tag" style="color: var(--urgency-amber);">Paso 05 · Acción Agéntica R2</span>
-              <h4 id="r2-inspector-title" class="inspector-node-title">Alerta al Organizador · NO CANCELA</h4>
+            <div class="v-stem v-stem-amber"></div>
 
-              <div class="inspector-field">
-                <label>Datos de Entrada:</label>
-                <p id="r2-inspector-inputs">Dispositivo del capitán (notificación Push / WhatsApp).</p>
+            <!-- Nodo 2: Decisión 1 -->
+            <div class="v-decision" style="border-color: var(--urgency-amber); box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);">
+              <span class="v-node-step" style="color: var(--urgency-amber);">Evaluación 01 · Quórum y Reloj</span>
+              <div class="v-node-title">¿Faltan Jugadores Y Quedan Menos de 3 Horas?</div>
+              <div class="v-node-desc">Condición: Faltantes &gt; 0 ∧ Tiempo &lt; 180 min.</div>
+            </div>
+
+            <div class="v-stem v-stem-amber"></div>
+
+            <!-- Nodo 3: Decisión 2 -->
+            <div class="v-decision" style="border-color: var(--urgency-amber); box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);">
+              <span class="v-node-step" style="color: var(--urgency-amber);">Evaluación 02 · Disponibilidad Barrial</span>
+              <div class="v-node-title">¿Existen Candidatos Compatibles en la Zona?</div>
+              <div class="v-node-desc">Consulta al radar de jugadores libres a &le; 5 km arrojando 0 postulantes.</div>
+            </div>
+
+            <div class="v-fork">
+              <div class="v-fork-bar" style="background: rgba(245, 158, 11, 0.4);"></div>
+            </div>
+
+            <!-- Bifurcación SÍ vs NO -->
+            <div class="v-branches-row">
+              <!-- Rama SÍ: Se cumple la regla R2 -->
+              <div class="v-branch branch-yes">
+                <span class="v-branch-tag tag-no">SÍ · Urgencia Confirmada (R2)</span>
+                <div class="v-action-card v-action-amber">
+                  <div class="card-title">Alerta al Capitán · NO CANCELA</div>
+                  <div class="card-body">
+                    El sistema emite notificación prioritaria urgente al capitán presentando alternativas operativas (jugar 4 vs 4, dividir costos). <strong>Bajo ninguna circunstancia cancela el partido de forma automática</strong>, preservando la seña pagada a la cancha.
+                  </div>
+                </div>
               </div>
 
-              <div class="inspector-field">
-                <label>Evaluación Lógica:</label>
-                <p id="r2-inspector-logic">Dispara alerta prioritaria con 3 alternativas: jugar 4 vs 4, ampliar radar o dividir costo.</p>
+              <!-- Rama NO: Caso Límite de 45 min -->
+              <div class="v-branch branch-no">
+                <span class="v-branch-tag tag-yes">CASO LÍMITE · Sin Respuesta (45 min)</span>
+                <div class="v-action-card" style="border-color: #ef4444; background: linear-gradient(145deg, #2e0805, #101e3b);">
+                  <div class="card-title" style="color: #fca5a5;">Escalamiento Humano en Cancha</div>
+                  <div class="card-body">
+                    Si a 45 minutos del turno el capitán no acusó recibo de la alerta, el sistema dispara notificación espejo al subcapitán y avisa al WhatsApp de la recepción del club para coordinar con los presentes al ingresar al predio.
+                  </div>
+                </div>
               </div>
-
-              <div class="inspector-field">
-                <label>Decisión de Diseño:</label>
-                <p id="r2-inspector-rationale">Cumple la restricción esencial de R2: jamás cancela de manera autónoma, salvando la seña económica del grupo.</p>
-              </div>
-
-              <div class="inspector-tip" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #fde68a;">
-                💡 <strong>Interactividad:</strong> Probá cambiar entre el camino de alerta y el caso límite de 45 min con los botones superiores.
-              </div>
-            </aside>
+            </div>
           </div>
         </div>
 
@@ -646,11 +565,13 @@
                   </button>
                 </div>
 
-                <!-- Badge de No Cancelación (Visible en R2) -->
-                <div id="no-cancel-badge" style="display: none; margin-top: 10px;">
-                  <span class="radar-pill" style="color: var(--urgency-amber); border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.15); font-size: 0.85rem; padding: 8px 14px;">
-                    🛡 RESERVA ASEGURADA: EL AGENTE NUNCA CANCELA EL PARTIDO AUTOMÁTICAMENTE
-                  </span>
+                <!-- BANNER PROFESIONAL DE ALERTA R2 (SIN ROTURAS DE TEXTO) -->
+                <div id="r2-alert-banner" class="alert-banner-r2" style="display: none;">
+                  <div class="alert-banner-icon">🛡</div>
+                  <div class="alert-banner-text">
+                    <strong>Reserva de Cancha Protegida</strong>
+                    <p>El agente nunca cancela el partido de forma automática. Tu turno en la cancha 3 y la seña pagada siguen firmes.</p>
+                  </div>
                 </div>
               </div>
 
@@ -699,7 +620,7 @@
             <p class="team-role">Arquitectura &amp; Testing</p>
             <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">Mar del Plata · GitHub: @Apoteotico</p>
             <div class="team-contribution">
-              <strong>Aporte en TP3:</strong> Configuración del entorno en Vite, verificación de compilación sin errores (`npm run build`), testing responsive en desktop y trazado vectorial interactivo de los diagramas SVG.
+              <strong>Aporte en TP3:</strong> Configuración del entorno en Vite, verificación de compilación sin errores (`npm run build`), testing responsive en desktop y trazado del árbol de decisión interactivo.
             </div>
           </article>
 
