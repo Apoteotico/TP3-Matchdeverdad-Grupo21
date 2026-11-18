@@ -25,10 +25,10 @@ Landing page institucional y técnica desarrollada para la presentación de dos 
 
 | Integrante | Rol Principal | Aportes Concretos y Tareas Realizadas |
 | :--- | :--- | :--- |
-| **Florencia Guzmán** | Front End & Diseño UI/UX | Dirección del prompt estético deportivo (*"Tactical Pitch"*), definición de contraste de paleta (verde césped `#10b981`, alertas ámbar `#f59e0b`), maquetación de tarjetas y microinteracciones de cancha. |
-| **Sonia Raquel Andrada** | Lógica de Flujos & Accesibilidad | Desarme analítico de las sentencias R1 y R2 de Matchdeverdad, estructuración semántica de los desplegables `<details>` y validación de navegación accesible por teclado (roles ARIA, focus ring). |
-| **Eitel Hugo Belinzoni** | Arquitectura & Testing | Configuración del entorno de empaquetado en Vite, verificación de compilación sin errores (`npm run build`), testing responsive en desktop y trazado vectorial de los diagramas SVG con marcadores. |
-| **Guillermo Alberto Chacon** | Coordinación & UX Interactiva | Coordinación general de las directivas al agente de IA, diseño del simulador interactivo de decisiones lógicas en tiempo real y redacción de los casos límite de contingencia con intervención humana. |
+| **Florencia Guzmán** | Front End & Diseño UI/UX | Dirección de arte con estética de canchita nocturna (*"Tactical Pitch"*), paleta de alto contraste (verde césped `#10b981`, alertas ámbar `#f59e0b`), tipografía deportiva (*Barlow Condensed*), microinteracciones de camisetas y diseño de la pizarra de quórum. |
+| **Sonia Raquel Andrada** | Lógica de Flujos & Accesibilidad | Desarme analítico de las sentencias R1 y R2 de Matchdeverdad, estructuración semántica de los desplegables `<details>` y validación de navegación accesible por teclado (roles ARIA, focus visible). |
+| **Eitel Hugo Belinzoni** | Arquitectura & Testing | Configuración del entorno de empaquetado en Vite, verificación de compilación sin errores (`npm run build`), testing responsive en desktop y trazado de los flujos de decisión en alto contraste. |
+| **Guillermo Alberto Chacon** | Coordinación & UX Interactiva | Coordinación general de las directivas al agente de IA, diseño conceptual de la Pizarra Táctica del Capitán en tiempo real y redacción de los casos límite de contingencia con intervención humana. |
 
 ### Evidencia de Colaboración y Revisión entre Integrantes (Rúbrica - Nivel Propone)
 - **Revisión 1 (Chacon & Guzmán — Sentencia R2):** Al analizar la primera generación de código del agente para la Frase 2 (*urgencia con menos de 3 horas y sin candidatos*), el agente había incluido una rama que cancelaba automáticamente el partido en la base de datos para "liberar al usuario". Florencia observó inmediatamente que esta lógica contradecía de forma directa la consigna oficial del sorteo docente (*"sin cancelar el partido automáticamente"*). Guillermo aportó que en el fútbol amateur cancelar sin confirmación del capitán provoca la pérdida económica de la seña pagada a la cancha. Tras este intercambio grupal, se instruyó al agente para reescribir el flujo: la acción se reformuló como una **Alerta Prioritaria Multi-Canal (Push/WhatsApp)** con derivación a intervención humana, manteniendo el turno asegurado.
@@ -93,8 +93,8 @@ En la organización de partidos de fútbol 5, la falta de confirmación de los d
 
 - **HTML5 Semántico:** Estructuración con `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<details>`, `<summary>` y `<footer>`, respetando los roles de accesibilidad ARIA y enlaces de salto (*skip-link*).
 - **CSS3 Moderno:** Variables nativas (Custom Properties), layout en CSS Grid y Flexbox, estética nocturna deportiva (*Tactical Pitch*), estados `:focus-visible` para accesibilidad por teclado y diseño adaptable sin desbordes horizontales en desktop.
-- **JavaScript Modular (ES6):** Controlador reactivo para el simulador interactivo de lógica, conmutador de escenarios prefijados (*presets*), resaltado dinámico de nodos SVG y sincronización de atributos de accesibilidad en los desplegables.
-- **SVG Vectorial Nativo:** Dos diagramas de flujo integrados directamente en código, con marcadores de flecha definidos, rombos de decisión y diferenciación cromática de caminos.
+- **JavaScript Modular (ES6):** Controlador reactivo para la Pizarra Táctica del Capitán, con camisetas interactivas clickeables, selector de reloj digital de cuenta regresiva, conmutador de radar barrial y previsualización de candidatos en tiempo real.
+- **Pizarra Táctica de Flujos en Alto Contraste:** Representación gráfica clara y legible de 4 etapas modulares por cada regla (Evento &rarr; Radar &rarr; Condición &rarr; Acción Agéntica Final) con diferenciación cromática amigable.
 - **Vite 6:** Empaquetador ultrarrápido y servidor de previsualización para asegurar una compilación limpia y sin dependencias superfluas.
 
 ---
@@ -119,7 +119,7 @@ Tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior) y `npm`.
    ```powershell
    npm run dev
    ```
-   Abrir en el navegador la dirección local indicada (usualmente `http://localhost:3000` o `http://localhost:5173`).
+   Abrir en el navegador la dirección local indicada (`http://localhost:3000`).
 
 4. **Compilar para producción:**
    ```powershell
@@ -143,19 +143,19 @@ En estricto cumplimiento de la consigna de *“Construcción 100% Agéntica: Ust
 - **Usos de la IA:**
   - Análisis proposicional y descomposición de las sentencias R1 y R2 de Matchdeverdad.
   - Generación de la maquetación semántica en HTML5 y CSS3 responsive.
-  - Modelado vectorial en SVG para los dos diagramas de flujo de decisión.
-  - Implementación del script interactivo para el simulador de estados en tiempo real.
+  - Modelado de las Pizarras Tácticas de Flujo de alto contraste.
+  - Implementación del script interactivo para la Pizarra del Capitán (camisetas clickeables y reloj LED).
   - Auditoría de accesibilidad y verificación de compilación en Vite.
 
 ### Evidencia de Iteración (Rúbrica - Nivel Propone)
 - **Instrucción inicial del grupo:**
   > *"Generá una landing page para la startup Matchdeverdad con la Frase 1 y Frase 2, mostrando un diagrama de qué pasa cuando faltan jugadores."*
 - **Problema detectado por el grupo:**
-  En la respuesta preliminar, el agente generó una estructura genérica donde, al evaluarse la Frase 2 (*faltan jugadores, quedan menos de 3 horas y no hay candidatos*), el sistema ejecutaba directamente la función `cancelarPartido()`, enviando un mail de cancelación al predio. Además, los diagramas se habían planteado como simples listas de texto sin formato gráfico vectorial y no se contemplaba cómo reaccionar si el organizador no respondía.
+  En la respuesta preliminar, el agente generó una estructura genérica con un formulario básico de sliders, diagramas oscuros de bajo contraste donde los textos quedaban apretados en dos líneas con colores poco amigables, una tabla de rúbrica en medio del sitio y un flujo erróneo que cancelaba el partido automáticamente en R2.
 - **Pedido de mejora y reprompting formulado al agente:**
-  > *"Corrección técnica obligatoria: la Frase 2 del sorteo S07-A prohíbe explícitamente cancelar el partido de forma automática ('sin cancelar el partido automáticamente'). Reformulá el flujo de R2 para que la consecuencia sea una ALERTA PRIORITARIA al organizador con opciones tácticas (jugar en formato reducido, invitar amigos externos), manteniendo la reserva intacta. Además, construí dos diagramas de flujo vectoriales nítidos en formato SVG nativo con caminos SÍ/NO diferenciados por color, incorporá un simulador interactivo donde el docente pueda mover los controles de jugadores y tiempo en tiempo real, y agregá un caso límite con protocolo de escalamiento humano para cuando el organizador no responde a 45 minutos del partido."*
+  > *"Correcciones obligatorias de diseño y lógica: 1) Eliminar la tabla de rúbrica de la landing (debe quedar en el README para la corrección académica, no en la web del producto). 2) Rediseñar por completo los diagramas: usar Pizarras Tácticas de alto contraste, tipografía amplia, colores amigables y tarjetas de acción con espacio generoso. 3) Reimaginar el simulador: transformarlo en 'La Pizarra del Capitán', con una cancha de fútbol 5 real, 10 camisetas interactivas clickeables para dar de baja/alta jugadores, reloj LED de cuenta regresiva y ficha de candidato barrial con botón de invitar. 4) Garantizar la ambientación futbolera amateur ('La Cantera F5', camisetas con dorsales, quórum en vivo)."*
 - **Resultado final tras la iteración:**
-  El agente reescribió íntegramente la arquitectura de decisión: los diagramas SVG se implementaron con marcadores de flecha y rombos formales de decisión; el simulador interactivo evalúa dinámicamente las condiciones activando las luces y textos correspondientes; y se incluyó la intervención humana de contingencia tanto en la web como en la documentación.
+  El agente reconstruyó íntegramente la interfaz: la landing adoptó la estética de cancha nocturna con tipografía deportiva *Barlow Condensed*; los diagramas pasaron a ser Pizarras Tácticas modulares en alto contraste; el simulador interactivo permite clickear sobre las camisetas para cambiar el quórum en vivo; y la regla R2 cuenta con el escudo de no-cancelación automática destacado.
 
 ---
 
@@ -174,6 +174,6 @@ En estricto cumplimiento de la consigna de *“Construcción 100% Agéntica: Ust
 | :---: | :--- | :---: | :--- |
 | **01** | **Participación de los integrantes** | **PROPONE** | 4 integrantes documentados con roles y aportes individuales. Registro explícito de la revisión colaborativa entre integrantes y la mejora en la regla R2. |
 | **02** | **Repositorio y landing publicados** | **PROPONE** | Enlaces públicos y funcionales sin sesión. Guía paso a paso para reproducción local y verificación exhaustiva de enlaces. |
-| **03** | **Landing acorde a la consigna** | **PROPONE** | Logo oficial de Matchdeverdad en WebP, bloque S07-A, sentencias textuales, desplegables `<details>` y simulador interactivo con pizarra táctica de fútbol 5. |
-| **04** | **Dos flujos agénticos gráficos** | **PROPONE** | Dos diagramas vectoriales SVG nítidos y legibles (R1 y R2). Explicación exhaustiva de casos límite y resolución mediante intervención humana. |
+| **03** | **Landing acorde a la consigna** | **PROPONE** | Logo oficial de Matchdeverdad en WebP, bloque S07-A, sentencias textuales, desplegables `<details>` y Pizarra Táctica interactiva con 10 camisetas clickeables. |
+| **04** | **Dos flujos agénticos gráficos** | **PROPONE** | Dos Pizarras Tácticas en alto contraste, legibles y nítidas (R1 y R2). Explicación exhaustiva de casos límite y resolución mediante intervención humana. |
 | **05** | **Herramientas de IA y modelos** | **PROPONE** | Declaración de Google Antigravity y modelo Gemini 3.8 Flash. Evidencia completa de iteración con prompt inicial, error detectado, corrección y resultado. |
