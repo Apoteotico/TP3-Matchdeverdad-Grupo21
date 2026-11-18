@@ -1291,6 +1291,7 @@ details[open] .summary-icon {
   margin-top: 12px;
 }
 
+.edge-case-box h4,
 .edge-case-box h5 {
   color: var(--urgency-amber);
   font-family: var(--font-display);
