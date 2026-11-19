@@ -177,13 +177,13 @@ function initTacticalBoard() {
     });
   }
 
-  /* ---------- Valuación proposicional ---------- */
+  /* ---------- Indicadores de estado ---------- */
   function setChip(id, value) {
     const chip = $(id);
     if (!chip) return;
     chip.dataset.state = String(value);
     const mark = chip.querySelector('i');
-    if (mark) mark.textContent = value ? 'V' : 'F';
+    if (mark) mark.textContent = value ? 'Sí' : 'No';
   }
 
   function setRule(id, antecedent, trueText, falseText) {
@@ -225,21 +225,23 @@ function initTacticalBoard() {
     setChip('prop-q', v.q);
     setChip('prop-r', v.r);
     setRule('prop-r1', v.r1Antecedent,
-      'Antecedente: V · s = V (propone)',
-      'Antecedente: F · implicación verdadera por vacuidad');
+      'Regla activa: se propone candidato',
+      'Regla inactiva: no aplica');
     setRule('prop-r2', v.r2Antecedent,
-      'Antecedente: V · t = V, u = F (alerta sin cancelar)',
-      'Antecedente: F · implicación verdadera por vacuidad');
+      'Regla activa: alerta sin cancelar',
+      'Regla inactiva: no aplica');
 
-    // Cápsula de evaluación lógica en vivo
+    // Cápsula de estado en vivo
     if (formulaBar) {
+      const pText = v.p ? 'Faltan jugadores' : 'Equipo completo';
+      const qText = v.q ? 'Hay candidatos cercanos' : 'Sin candidatos';
+      const rText = v.r ? 'Menos de 3 horas' : 'Tiempo holgado';
       const verdict = v.r2Antecedent
-        ? `R2: (p ∧ r ∧ ¬q) → (t ∧ ¬u) [ACTIVA]`
+        ? 'Alerta sin cancelar'
         : v.r1Antecedent
-          ? `R1: (p ∧ q) → s [ACTIVA]`
-          : `R1 y R2: antecedente F [SIN ACCIÓN]`;
-      formulaBar.textContent =
-        `p = ${tag(v.p)} (${confirmedCount}/${TEAM_SIZE}) · q = ${tag(v.q)} (${v.q ? '≤ 5 km' : '0 postulantes'}) · r = ${tag(v.r)} (${formatClock(minutesLeft)} h) ⟹ ${verdict}`;
+          ? 'Proponer candidatos'
+          : 'Sin acción';
+      formulaBar.textContent = `${pText} · ${qText} · ${rText} — resultado: ${verdict}`;
     }
 
     // Reset visual
@@ -247,47 +249,47 @@ function initTacticalBoard() {
     if (candidateBox) candidateBox.style.display = 'none';
     paintCandidate();
 
-    // ESTADO 1 · Quórum completo (¬p)
+    // ESTADO 1 · Quórum completo
     if (!v.p) {
       setBeacon('cyan');
-      outputTitle.textContent = '¡Equipo completo! (10/10 · ¬p)';
-      outputBody.innerHTML = 'Como <strong>p = F</strong>, los antecedentes de R1 y R2 son falsos (implicaciones verdaderas por vacuidad): <strong>¬s ∧ ¬t ∧ ¬u</strong>. No se proponen candidatos, no se alerta y el partido se juega normalmente.';
+      outputTitle.textContent = '¡Equipo completo! (10/10)';
+      outputBody.innerHTML = 'Tienes los 10 jugadores confirmados. No hace falta proponer candidatos ni alertar a nadie. El partido se juega normalmente.';
       return;
     }
 
-    // ESTADOS 2A / 2B · R1: (p ∧ q) → s
+    // ESTADOS · R1: Proponer candidatos
     if (v.r1Antecedent) {
       setBeacon('green');
-      outputTitle.textContent = 'Regla R1 activada: proponer candidatos (p ∧ q → s)';
-      const lead = `Faltan <strong>${missingCount} jugador${plural(missingCount)}</strong> (p = V) y el radar encontró candidatos compatibles con la zona y el horario (q = V).`;
+      outputTitle.textContent = 'Regla activa: proponer candidatos';
+      const lead = `Faltan <strong>${missingCount} jugador${plural(missingCount)}</strong> y el radar encontró candidatos compatibles con la zona y el horario.`;
       outputBody.innerHTML = v.r
-        ? `${lead} Quedan menos de 3 horas (r = V), pero como <strong>q = V</strong> el antecedente de R2 (¬q) es falso: <strong>prevalece R1</strong>. El agente propone postulantes de incorporación inmediata, listos para salir a cancha en menos de 3 h, sin disparar alerta de escasez.`
-        : `${lead} Todavía hay margen holgado (r = F): el agente <strong>propone</strong> esos candidatos al organizador (s = V) con tiempo para que elija con calma.`;
+        ? `${lead} Quedan menos de 3 horas, pero como hay candidatos disponibles, prevalece la regla 1: se propone un reemplazo inmediato sin cancelar el partido.`
+        : `${lead} Tienes tiempo para elegir con calma. El agente propone esos candidatos al organizador.`;
       if (candidateBox) candidateBox.style.display = 'flex';
       return;
     }
 
-    // ESTADOS 4A / 4B · R2: (p ∧ r ∧ ¬q) → (t ∧ ¬u)
+    // ESTADOS · R2: Alerta sin cancelar
     if (v.r2Antecedent) {
       setBeacon('amber');
       if (minutesLeft < ESCALATION_MIN) {
-        outputTitle.textContent = 'Regla R2 + escalamiento humano (30 min restantes)';
-        outputBody.innerHTML = `Quedan <strong>${humanTime(minutesLeft)}</strong> (r = V), faltan <strong>${missingCount} jugador${plural(missingCount)}</strong> y no hay candidatos (q = F): se emite la <strong>alerta prioritaria</strong> (t = V) sin cancelar (u = F). Al cruzar el umbral de <strong>45 minutos</strong> se envía además una notificación espejo al subcapitán y un aviso de cortesía a la recepción del club.`;
+        outputTitle.textContent = 'Alerta prioritaria + aviso al subcapitán';
+        outputBody.innerHTML = `Quedan <strong>${humanTime(minutesLeft)}</strong>, faltan <strong>${missingCount} jugador${plural(missingCount)}</strong> y no hay candidatos cercanos. Se emite una <strong>alerta prioritaria</strong> sin cancelar el partido. Al cruzar los 45 minutos se avisa además al subcapitán y a la recepción del club.`;
       } else {
-        outputTitle.textContent = 'Regla R2 activada: alerta prioritaria (p ∧ r ∧ ¬q → t ∧ ¬u)';
-        outputBody.innerHTML = `Quedan <strong>${humanTime(minutesLeft)}</strong> (r = V), faltan <strong>${missingCount} jugador${plural(missingCount)}</strong> (p = V) y no hay candidatos compatibles (q = F). El sistema <strong>alerta al organizador</strong> (t = V) con opciones tácticas: jugar 4 vs 4, dividir costos o pedir un comodín al predio. <strong>No cancela</strong> el partido (u = F).`;
+        outputTitle.textContent = 'Alerta prioritaria sin cancelar';
+        outputBody.innerHTML = `Quedan <strong>${humanTime(minutesLeft)}</strong>, faltan <strong>${missingCount} jugador${plural(missingCount)}</strong> y no hay candidatos compatibles. El sistema <strong>alerta al organizador</strong> con opciones: jugar con menos jugadores, dividir costos o pedir un comodín al predio. <strong>No cancela</strong> el partido.`;
       }
       if (r2AlertBanner) r2AlertBanner.hidden = false;
       return;
     }
 
-    // ESTADO 3 · Monitoreo pasivo (p ∧ ¬q ∧ ¬r)
+    // ESTADO · Monitoreo pasivo sin urgencia
     setBeacon('slate');
-    outputTitle.textContent = 'Monitoreo pasivo sin urgencia (p ∧ ¬q ∧ ¬r)';
+    outputTitle.textContent = 'Monitoreo pasivo sin urgencia';
     const edge = minutesLeft === URGENCY_LIMIT_MIN
-      ? 'Con <strong>3 horas exactas</strong> no se cumple «menos de tres horas» (r = F).'
-      : `Quedan <strong>${humanTime(minutesLeft)}</strong>, más de tres horas (r = F).`;
-    outputBody.innerHTML = `${edge} Faltan ${missingCount} jugador${plural(missingCount)} y no hay candidatos (q = F), pero con <strong>r = F</strong> R2 está inactiva: no se alarma al capitán (s = F, t = F, ¬u). Protocolo de caso límite de R1: ampliar el radar a 10 km o generar un enlace/QR para invitar conocidos.`;
+      ? 'Con 3 horas exactas no se cumple "menos de tres horas".'
+      : `Quedan <strong>${humanTime(minutesLeft)}</strong>, más de tres horas.`;
+    outputBody.innerHTML = `${edge} Faltan ${missingCount} jugador${plural(missingCount)} y no hay candidatos cercanos. No hay urgencia aún: no se alarma al capitán. Opción: ampliar el radar de búsqueda o generar un enlace para invitar conocidos.`;
   }
 
   /* ---------- Controles ---------- */
@@ -312,7 +314,7 @@ function initTacticalBoard() {
     if (!radarToggleBtn) return;
     radarToggleBtn.classList.toggle('active', hasCandidates);
     radarToggleBtn.setAttribute('aria-pressed', String(hasCandidates));
-    radarToggleBtn.textContent = hasCandidates ? 'q = V · Hay candidatos' : 'q = F · Sin candidatos';
+    radarToggleBtn.textContent = hasCandidates ? 'Hay candidatos' : 'Sin candidatos';
   }
 
   radarToggleBtn?.addEventListener('click', () => {

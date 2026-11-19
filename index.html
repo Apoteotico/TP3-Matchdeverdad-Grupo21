@@ -39,10 +39,8 @@
           <li><a href="#hero" class="nav-link active">Inicio</a></li>
           <li><a href="#startup" class="nav-link">Startup</a></li>
           <li><a href="#sentencias" class="nav-link">Reglas</a></li>
-          <li><a href="#propuesta-1" class="nav-link">Flujo R1</a></li>
-          <li><a href="#propuesta-2" class="nav-link">Flujo R2</a></li>
+          <li><a href="#propuesta-1" class="nav-link">Flujos</a></li>
           <li><a href="#simulador" class="nav-link">Pizarra</a></li>
-          <li><a href="#equipo" class="nav-link">Equipo</a></li>
         </ul>
       </nav>
 
@@ -72,7 +70,7 @@
           </h1>
 
           <p class="hero-lead">
-            El salvador del <strong>fútbol 5 amateur</strong>: cuando se baja uno a las 18:30 y el partido es a las 20:00. Diseñamos dos propuestas agénticas interactivas para conectar postulantes en el barrio y gestionar la urgencia previa al partido <strong>sin cancelaciones intempestivas</strong> que hagan perder la seña de la cancha.
+            Matchdeverdad te ayuda a completar tu grupo de fútbol 5 con jugadores de la zona cuando faltan confirmados. Si alguien del grupo no puede ir, el sistema propone reemplazos cercanos y disponibles para que no tengas que cancelar el partido ni jugar con menos personas.
           </p>
 
           <div class="hero-actions">
@@ -90,41 +88,7 @@
           </div>
         </div>
 
-        <!-- Cancha Táctica Sintética del Hero -->
-        <div class="hero-pitch-card">
-          <div class="pitch-top-bar">
-            <div class="venue-info">
-              <div class="venue-light"></div>
-              <span class="venue-name">Cancha 3 · La Cantera F5</span>
-            </div>
-            <div class="led-clock-box">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              TURNO: 20:00 HS
-            </div>
-          </div>
-
-          <div class="synthetic-field">
-            <div class="field-half-line"></div>
-            <div class="field-center-circle"></div>
-            <div class="field-players-grid">
-              <div class="hero-jersey" title="Arquero 1"><div class="num">1</div><div class="name">Nico</div></div>
-              <div class="hero-jersey" title="Defensor 1"><div class="num">2</div><div class="name">Gonza</div></div>
-              <div class="hero-jersey" title="Medio 1"><div class="num">3</div><div class="name">Fran</div></div>
-              <div class="hero-jersey" title="Delantero 1"><div class="num">4</div><div class="name">Leo</div></div>
-              <div class="hero-jersey" title="Arquero 2"><div class="num">5</div><div class="name">Santi</div></div>
-              <div class="hero-jersey" title="Defensor 2"><div class="num">6</div><div class="name">Mati</div></div>
-              <div class="hero-jersey" title="Medio 2"><div class="num">7</div><div class="name">Juani</div></div>
-              <div class="hero-jersey" title="Delantero 2"><div class="num">8</div><div class="name">Manu</div></div>
-              <div class="hero-jersey hero-jersey-missing" title="Vacante 1"><div class="num">?</div><div class="name">¿Falta?</div></div>
-              <div class="hero-jersey hero-jersey-missing" title="Vacante 2"><div class="num">?</div><div class="name">¿Falta?</div></div>
-            </div>
-          </div>
-
-          <div class="pitch-bottom-bar">
-            <span class="quorum-text">ESTADO: <strong>8 / 10 CONFIRMADOS</strong> (FALTAN 2)</span>
-            <span class="radar-pill">RADAR ACTIVO &le; 5 KM</span>
-          </div>
-        </div>
+        
       </div>
     </section>
 
@@ -198,7 +162,7 @@
               </div>
               <div class="breakdown-box">
                 <span>Condición Lógica</span>
-                <strong>(p ∧ q) → s</strong>
+                <strong>Si faltan jugadores y hay candidatos, el sistema propone reemplazos</strong>
               </div>
               <div class="breakdown-box">
                 <span>Acción del Agente</span>
@@ -229,7 +193,7 @@
               </div>
               <div class="breakdown-box">
                 <span>Condición Compuesta</span>
-                <strong>(p ∧ r ∧ ¬q) → (t ∧ ¬u)</strong>
+                <strong>Si faltan jugadores, hay urgencia y no hay candidatos, el sistema alerta sin cancelar</strong>
               </div>
               <div class="breakdown-box">
                 <span>Acción del Agente</span>
@@ -251,16 +215,16 @@
         <div class="prop-dictionary" aria-labelledby="dict-title">
           <h3 id="dict-title" class="dict-title">Diccionario proposicional</h3>
           <dl class="dict-grid">
-            <div class="dict-item"><dt>p</dt><dd>Faltan jugadores para el quórum <small>(confirmados &lt; 10 · ¬p: equipo completo 10/10)</small></dd></div>
-            <div class="dict-item"><dt>q</dt><dd>Hay candidatos compatibles con la zona y el horario <small>(≤ 5 km, ± 15 min · ¬q: radar vacío)</small></dd></div>
-            <div class="dict-item"><dt>r</dt><dd>Quedan menos de tres horas para el partido <small>(&lt; 180 min · ¬r: margen de 3 h o más)</small></dd></div>
+            <div class="dict-item"><dt>p</dt><dd>Faltan jugadores para el quórum (menos de 10 confirmados)</dd></div>
+            <div class="dict-item"><dt>q</dt><dd>Hay candidatos compatibles con la zona y el horario (≤ 5 km, ± 15 min)</dd></div>
+            <div class="dict-item"><dt>r</dt><dd>Quedan menos de tres horas para el partido (menos de 180 minutos)</dd></div>
             <div class="dict-item"><dt>s</dt><dd>El sistema propone candidatos al organizador</dd></div>
             <div class="dict-item"><dt>t</dt><dd>El sistema alerta al organizador</dd></div>
-            <div class="dict-item"><dt>u</dt><dd>El sistema cancela el partido automáticamente <small>(¬u es un invariante: nunca se cancela solo)</small></dd></div>
+            <div class="dict-item"><dt>u</dt><dd>El sistema cancela el partido automáticamente (nunca se cancela solo)</dd></div>
           </dl>
           <div class="dict-formulas">
-            <code><b>R1</b> (p ∧ q) → s</code>
-            <code class="is-amber"><b>R2</b> (p ∧ r ∧ ¬q) → (t ∧ ¬u)</code>
+            <code><b>R1</b> Si faltan jugadores y hay candidatos, propone reemplazos</code>
+            <code class="is-amber"><b>R2</b> Si faltan jugadores, hay urgencia y no hay candidatos, alerta sin cancelar</code>
           </div>
         </div>
       </div>
@@ -273,7 +237,7 @@
           <span class="section-eyebrow">03 · Propuesta Agéntica 1 (R1)</span>
           <h2 id="p1-title" class="section-title">MatchFinder Agent · Búsqueda Inteligente</h2>
           <p class="section-desc">
-            Motor de radar barrial que detecta vacantes, filtra postulantes por geocercanía (&le; 5 km) y disponibilidad horaria, y propone las mejores opciones al capitán.
+            Busca jugadores cerca de la cancha que estén disponibles y los propone al capitán para completar el grupo.
           </p>
         </div>
 
@@ -323,7 +287,7 @@
               <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
               <div class="flow-side is-no">
                 <div class="v-exit">
-                  <div class="card-title">p = Falso · Equipo completo</div>
+                  <div class="card-title">Equipo completo</div>
                   <div class="card-body">Con 10 confirmados no hay nada que cubrir. R1 no se dispara y no se propone a nadie.</div>
                 </div>
               </div>
@@ -343,7 +307,7 @@
               <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
               <div class="flow-side is-no">
                 <div class="v-exit">
-                  <div class="card-title">q = Falso · R1 no se dispara</div>
+                  <div class="card-title">Sin candidatos, no se propone</div>
                   <div class="card-body">Sin candidatos no hay propuesta posible. El agente ofrece ampliar la zona a 10 km (intervención humana) y, si queda menos de 3 h, se evalúa la regla R2.</div>
                 </div>
               </div>
@@ -357,7 +321,7 @@
                 <div class="v-action-card">
                   <div class="card-title">s · Propone los candidatos al organizador</div>
                   <div class="card-body">
-                    (p ∧ q) → s. El agente ordena a los postulantes por puntualidad y juego limpio y los muestra al capitán con un botón de invitación. El organizador decide a quién sumar: el sistema nunca invita por su cuenta.
+                    El agente ordena a los postulantes por puntualidad y juego limpio y los muestra al capitán con un botón de invitación. El organizador decide a quién sumar: el sistema nunca invita por su cuenta.
                   </div>
                 </div>
               </div>
@@ -411,7 +375,7 @@
           <span class="section-eyebrow">04 · Propuesta Agéntica 2 (R2)</span>
           <h2 id="p2-title" class="section-title">MatchGuard Urgency · Protocolo de Alerta</h2>
           <p class="section-desc">
-            Gestión inteligente del tiempo crítico pre-partido: cuando faltan jugadores, el reloj apura y no hay sustitutos cercanos.
+            Si faltan jugadores, quedan menos de 3 horas y no hay candidatos, el sistema alerta al organizador sin cancelar el partido.
           </p>
         </div>
 
@@ -461,7 +425,7 @@
               <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
               <div class="flow-side is-no">
                 <div class="v-exit">
-                  <div class="card-title">p = Falso · Equipo completo</div>
+                  <div class="card-title">Equipo completo</div>
                   <div class="card-body">Con 10 confirmados no hay urgencia. R2 no se dispara y no se envía ninguna alerta.</div>
                 </div>
               </div>
@@ -481,7 +445,7 @@
               <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
               <div class="flow-side is-no">
                 <div class="v-exit">
-                  <div class="card-title">r = Falso · Todavía hay margen</div>
+                  <div class="card-title">Todavía hay margen</div>
                   <div class="card-body">Con 3 h exactas o más el sistema no alerta: mantiene el radar en modo pasivo y sigue buscando.</div>
                 </div>
               </div>
@@ -489,19 +453,19 @@
 
             <div class="flow-down is-yes"><span class="flow-edge-tag tag-yes">SÍ</span><span class="v-stem"></span></div>
 
-            <!-- Decisión ¬q -->
+            <!-- Decisión: ¿no hay candidatos? -->
             <div class="flow-row">
               <div class="flow-main">
                 <div class="v-decision">
                   <span class="v-node-step">Decisión 3 · negación de q</span>
                   <div class="v-node-title">¿No hay candidatos compatibles?</div>
-                  <div class="v-node-desc">¬q: el radar devuelve 0 postulantes en zona y horario</div>
+                  <div class="v-node-desc">El radar devuelve 0 postulantes en zona y horario</div>
                 </div>
               </div>
               <div class="flow-link is-no"><span class="flow-edge-tag tag-no">NO</span></div>
               <div class="flow-side is-no">
                 <div class="v-exit">
-                  <div class="card-title">q = Verdadero · Aplica R1</div>
+                  <div class="card-title">Hay candidatos, se aplica R1</div>
                   <div class="card-body">Si hay candidatos compatibles, R2 no se dispara: se aplica R1 y se los propone al organizador.</div>
                 </div>
               </div>
@@ -509,13 +473,13 @@
 
             <div class="flow-down is-yes"><span class="flow-edge-tag tag-yes">SÍ</span><span class="v-stem"></span></div>
 
-            <!-- Resultado t ∧ ¬u -->
+            <!-- Resultado: alerta sin cancelar -->
             <div class="flow-row">
               <div class="flow-main is-yes">
                 <div class="v-action-card v-action-amber">
-                  <div class="card-title">t ∧ ¬u · Alerta al organizador, sin cancelar</div>
+                  <div class="card-title">Alerta al organizador, sin cancelar</div>
                   <div class="card-body">
-                    (p ∧ r ∧ ¬q) → (t ∧ ¬u). El sistema envía una alerta prioritaria al capitán con opciones de contingencia (jugar 4 vs 4, sumar un conocido). <strong>No cancela el partido automáticamente</strong>: la seña y el turno quedan protegidos.
+                    El sistema envía una alerta prioritaria al capitán con opciones de contingencia (jugar 4 vs 4, sumar un conocido). <strong>No cancela el partido automáticamente</strong>: la seña y el turno quedan protegidos.
                   </div>
                 </div>
               </div>
@@ -566,7 +530,7 @@
           <span class="section-eyebrow">05 · Pizarra Táctica en Vivo</span>
           <h2 id="simulador-title" class="section-title">El Radar de la Canchita</h2>
           <p class="section-desc">
-            Interactúe con la cancha de fútbol 5 sintético: baje o confirme jugadores y modifique el reloj para comprobar cómo reacciona el agente ante cada situación.
+            Prueba cómo el sistema responde cuando faltan jugadores, cambias el tiempo restante o activas el radar de candidatos.
           </p>
         </div>
 
@@ -617,13 +581,13 @@
               <div class="control-card">
                 <div class="control-title">
                   <span>1. Tiempo restante para el partido</span>
-                  <span class="control-var">r = tiempo &lt; 3 h</span>
+                  <span class="control-var">¿Menos de 3 horas?</span>
                 </div>
                 <div class="time-selector-buttons" role="group" aria-label="Tiempo restante para el partido">
-                  <button type="button" class="time-btn" data-minutes="240"><strong>4 h</strong><small>r = F</small></button>
-                  <button type="button" class="time-btn" data-minutes="180"><strong>3 h exactas</strong><small>r = F (borde)</small></button>
-                  <button type="button" class="time-btn active" data-minutes="120"><strong>2 h</strong><small>r = V</small></button>
-                  <button type="button" class="time-btn" data-minutes="30"><strong>30 min</strong><small>r = V</small></button>
+                  <button type="button" class="time-btn" data-minutes="240"><strong>4 h</strong><small>Tiempo holgado</small></button>
+                  <button type="button" class="time-btn" data-minutes="180"><strong>3 h exactas</strong><small>Límite: 3 horas</small></button>
+                  <button type="button" class="time-btn active" data-minutes="120"><strong>2 h</strong><small>Menos de 3 horas</small></button>
+                  <button type="button" class="time-btn" data-minutes="30"><strong>30 min</strong><small>Menos de 3 horas</small></button>
                 </div>
               </div>
 
@@ -635,14 +599,14 @@
                     <p>Compatibles con la zona (≤ 5 km) y el horario</p>
                   </div>
                   <button type="button" id="radar-toggle-btn" class="switch-toggle-btn active" aria-pressed="true">
-                    q = V · Hay candidatos
+                    Hay candidatos
                   </button>
                 </div>
               </div>
 
               <!-- Panel de Salida del Agente en Tiempo Real -->
               <div class="live-agentic-output" id="agent-panel" data-tone="green">
-                <div id="agent-logic-formula" class="logic-formula" aria-live="polite">p = V (8/10) · q = V (≤ 5 km) · r = V (02:00 h) ⟹ R1: (p ∧ q) → s [ACTIVA]</div>
+                <div id="agent-logic-formula" class="logic-formula" aria-live="polite">Faltan jugadores · Hay candidatos cercanos · Menos de 3 horas → Proponer candidatos</div>
                 <div class="output-status-header">
                   <div id="agent-beacon" class="status-beacon"></div>
                   <h4 id="agent-output-title" class="output-title">R1 activada: propone candidatos</h4>
@@ -672,35 +636,35 @@
                     <strong>Alerta de urgencia al organizador</strong>
                     <p>El partido <b>no se cancela automáticamente</b>. El turno en la Cantera F5 y la seña pagada siguen firmes mientras decidís cómo cubrir las vacantes.</p>
                   </div>
-                  <span class="alert-banner-tag">t = V · u = F</span>
+                  <span class="alert-banner-tag">Alerta activa · Sin cancelación</span>
                 </div>
               </div>
 
 
-              <!-- Valuación proposicional en vivo -->
+              <!-- Estado del partido en tiempo real -->
               <div class="control-card prop-card" aria-live="polite">
                 <div class="control-title">
-                  <span>3. Valuación proposicional</span>
+                  <span>3. Estado del partido en tiempo real</span>
                   <button type="button" id="sim-reset-btn" class="btn-reset">Reiniciar</button>
                 </div>
                 <div class="prop-vars">
-                  <span class="prop-chip" id="prop-p" data-state="true"><b>p</b> Faltan jugadores<i>V</i></span>
-                  <span class="prop-chip" id="prop-q" data-state="true"><b>q</b> Candidatos compatibles<i>V</i></span>
-                  <span class="prop-chip" id="prop-r" data-state="true"><b>r</b> Quedan &lt; 3 h<i>V</i></span>
+                  <span class="prop-chip" id="prop-p" data-state="true"><b>Faltan jugadores</b></span>
+                  <span class="prop-chip" id="prop-q" data-state="true"><b>Candidatos compatibles</b></span>
+                  <span class="prop-chip" id="prop-r" data-state="true"><b>Quedan &lt; 3 h</b></span>
                 </div>
                 <div class="prop-rules">
                   <div class="prop-rule" id="prop-r1">
                     <span class="prop-rule-name">R1</span>
-                    <code>(p ∧ q) → s</code>
-                    <span class="prop-rule-state">Antecedente: V · s = V</span>
+                    <span class="prop-rule-text">Si faltan jugadores y hay candidatos, se propone reemplazo</span>
+                    <span class="prop-rule-state">Regla activa: se propone candidato</span>
                   </div>
                   <div class="prop-rule" id="prop-r2">
                     <span class="prop-rule-name">R2</span>
-                    <code>(p ∧ r ∧ ¬q) → (t ∧ ¬u)</code>
-                    <span class="prop-rule-state">Antecedente: F · sin efecto</span>
+                    <span class="prop-rule-text">Si faltan jugadores, hay urgencia y no hay candidatos, se alerta sin cancelar</span>
+                    <span class="prop-rule-state">Regla inactiva: no aplica</span>
                   </div>
                 </div>
-                <p class="prop-note">u = F siempre: ninguna regla cancela el partido de forma automática.</p>
+                <p class="prop-note">El partido nunca se cancela automáticamente.</p>
               </div>
 
             </div>
@@ -767,12 +731,75 @@
 
   </main>
 
+  <!-- SECCIÓN FAQ: Preguntas Técnicas -->
+  <section id="faq" class="content-section" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Preguntas frecuentes</span>
+        <h2 id="faq-title" class="section-title">Preguntas técnicas</h2>
+        <p class="section-desc">Detalles sobre cómo funcionan los flujos y la lógica del sistema. Expande para leer.</p>
+      </div>
+
+      <div class="details-accordion" style="max-width: 960px; margin: 0 auto;">
+        <details class="solution-details">
+          <summary class="details-summary">
+            <span>¿Qué significa "flujo agéntico"?</span>
+            <span class="summary-icon">+</span>
+          </summary>
+          <div class="details-content">
+            <p>Es una representación paso a paso de cómo se resuelve un problema: qué datos entran, qué se decide y qué acción sigue. En este TP, cada flujo muestra qué haría el agente, qué herramienta consultaría y cuándo pediría ayuda a una persona.</p>
+          </div>
+        </details>
+
+        <details class="solution-details">
+          <summary class="details-summary">
+            <span>¿Por qué el sistema no cancela el partido automáticamente?</span>
+            <span class="summary-icon">+</span>
+          </summary>
+          <div class="details-content">
+            <p>Cancelar una cancha reservada tiene un costo económico para el organizador. La regla R2 solo alerta al organizador cuando hay urgencia, pero nunca cancela el turno. La decisión final siempre es del capitán.</p>
+          </div>
+        </details>
+
+        <details class="solution-details">
+          <summary class="details-summary">
+            <span>¿Qué significan las variables p, q, r?</span>
+            <span class="summary-icon">+</span>
+          </summary>
+          <div class="details-content">
+            <p>Son condiciones lógicas del sistema: <b>p</b> = faltan jugadores, <b>q</b> = hay candidatos compatibles, <b>r</b> = quedan menos de 3 horas. Se combinan para decidir si se aplican las reglas R1 o R2.</p>
+          </div>
+        </details>
+
+        <details class="solution-details">
+          <summary class="details-summary">
+            <span>¿Tiene que usar React?</span>
+            <span class="summary-icon">+</span>
+          </summary>
+          <div class="details-content">
+            <p>No. La página está construida con HTML, CSS y JavaScript puro. React es opcional.</p>
+          </div>
+        </details>
+
+        <details class="solution-details">
+          <summary class="details-summary">
+            <span>¿Los flujos funcionan de verdad?</span>
+            <span class="summary-icon">+</span>
+          </summary>
+          <div class="details-content">
+            <p>La landing funciona (navegación, desplegables, lectura en desktop). Los flujos representan una propuesta de automatización; no se ejecutan como automatizaciones reales ni se conectan a servicios externos.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer del Sitio -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
         <div style="display: flex; align-items: center; gap: 12px;">
-          <img src="/logos/S07.webp" alt="Logo de Matchdeverdad" width="38" height="38" style="border-radius: 6px;" />
+          <img src="/logos/S07.webp" alt="Logo de Matchdeverdad" width="64" height="64" style="border-radius: 8px;" />
           <div>
             <strong style="color: var(--text-pure); font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase;">Matchdeverdad</strong>
             <p style="font-size: 0.76rem; color: var(--text-muted); margin: 0;">Fútbol 5 &amp; Automatización Agéntica</p>
