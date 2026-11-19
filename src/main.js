@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTacticalBoard();
   initDetailsAccessibility();
   initScrollSpy();
+  initScrollToTop();
 });
 
 /* ==========================================================================
@@ -419,4 +420,42 @@ function initScrollSpy() {
     }
   }, { passive: true });
   update();
+}
+
+/* ==========================================================================
+   BOTÓN VOLVER ARRIBA (Scroll to Top)
+   ========================================================================== */
+function initScrollToTop() {
+  const btn = document.getElementById('scroll-top');
+  if (!btn) return;
+
+  const SHOW_THRESHOLD = 400; // px de scroll antes de mostrar el botón
+
+  function toggleVisibility() {
+    if (window.scrollY > SHOW_THRESHOLD) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+
+  // Mostrar/ocultar al hacer scroll (con throttle simple mediante requestAnimationFrame)
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(() => {
+        toggleVisibility();
+        ticking = false;
+      });
+    }
+  }, { passive: true });
+
+  // Scroll suave al hacer clic
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Estado inicial
+  toggleVisibility();
 }
